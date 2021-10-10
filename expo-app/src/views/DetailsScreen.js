@@ -18,6 +18,18 @@ export default function DetailsScreen({ navigation }) {
             />
             <Separator />
             <Button
+                title="Go to Details... again"
+                onPress={() => navigation.push('Details')}
+                color="#e41584"
+            />
+            <Separator />
+            <Button
+                title="Go back to first screen in stack - popToTop"
+                onPress={() => navigation.popToTop()}
+                color="#e47584"
+            />
+            <Separator />
+            <Button
                 title="Home"
                 color="#d5d5d5"
                 onPress={() => { navigation.navigate("Home") }}

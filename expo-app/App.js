@@ -33,7 +33,7 @@ Stack = createNativeStackNavigator();
 export default function App() {
 
   return (
-    <UserContext.Provider value={"hello from context - banana"}>
+    <UserContext.Provider value={"hello from context.provider"}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen

@@ -1,53 +1,61 @@
-import axios from 'axios';
+import React, { useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import Separator from './src/components/Separator';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+//VIEWS
+import RandomQuoteGenerator from "./src/views/RandomQuote"
+import HomeScreen from './src/views/HomeScreen';
+import DetailsScreen from './src/views/DetailsScreen';
+
+//CONTEXT
+import { UserContext } from './src/contexts/UserContext';
+
+// function HomeScreen() {
+//   const message = useContext(UserContext)
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//       <Text>Home Screen</Text>
+//       <Text>{message}</Text>
+//     </View>
+//   );
+// }
+
+// function DetailsScreen() {
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//       <Text>Details Screen</Text>
+//     </View>
+//   );
+// }
+
+Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [counter, setCounter] = useState(0)
-  const [quote, setQuote] = useState("")
-  const [author, setAuthor] = useState("")
 
-  useEffect(() => {
-    (async () => {
-      getQuote()
-    })()
-  }, [])
-
-  async function getQuote() {
-    try {
-      const response = await axios.get("https://goquotes-api.herokuapp.com/api/v1/random?count=1")
-
-      setQuote(response.data.quotes[0].text)
-      setAuthor(response.data.quotes[0].author)
-    } catch (error) {
-      console.error(error)
-      setQuote(error.message)
-    }
-
-  }
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Random Quote Generator</Text>
-      <Separator />
-      <Button
-        title="generate random quote"
-        color="#841584"
-        onPress={() => {
-          getQuote()
-        }}
-        style={styles.button}
-      />
-      <Separator />
-      <Separator />
+    <UserContext.Provider value={"hello from context - banana"}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="RandomQuote">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen} />
+          <Stack.Screen
+            name="Details"
+            component={DetailsScreen}
+            options={{ title: "Overview" }}
+          />
+          <Stack.Screen
+            name="RandomQuote"
+            component={RandomQuoteGenerator}
+            options={{ title: "Quote Generator" }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserContext.Provider>
 
-      <Text>{quote}</Text>
-      <Separator />
-      <Text>{author}</Text>
-
-      <StatusBar style="auto" />
-    </View>
   );
 }
 

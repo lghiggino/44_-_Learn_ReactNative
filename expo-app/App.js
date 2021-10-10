@@ -13,23 +13,20 @@ import DetailsScreen from './src/views/DetailsScreen';
 //CONTEXT
 import { UserContext } from './src/contexts/UserContext';
 
-// function HomeScreen() {
+// function HomeScreen({ navigation }) {
 //   const message = useContext(UserContext)
 //   return (
 //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 //       <Text>Home Screen</Text>
 //       <Text>{message}</Text>
+//       <Button
+//         title="Go to Details"
+//         onPress={() => { navigation.navigate('Details') }}
+//       />
 //     </View>
 //   );
 // }
 
-// function DetailsScreen() {
-//   return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Text>Details Screen</Text>
-//     </View>
-//   );
-// }
 
 Stack = createNativeStackNavigator();
 
@@ -38,7 +35,7 @@ export default function App() {
   return (
     <UserContext.Provider value={"hello from context - banana"}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="RandomQuote">
+        <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
             name="Home"
             component={HomeScreen} />

@@ -3,8 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Separator from '../components/Separator';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNavigationStackNavigator } from '@react-navigation/native-stack';
 
-export default function RandomQuoteGenerator() {
+export default function RandomQuoteGenerator({ navigation }) {
   const [counter, setCounter] = useState(0)
   const [quote, setQuote] = useState("")
   const [author, setAuthor] = useState("")
@@ -45,6 +47,13 @@ export default function RandomQuoteGenerator() {
       <Text>{quote}</Text>
       <Separator />
       <Text>{author}</Text>
+      <Separator />
+
+      <Button
+        title="Home"
+        color="#d5d5d5"
+        onPress={() => { navigation.navigate("Home") }}
+      />
 
       <StatusBar style="auto" />
     </View>

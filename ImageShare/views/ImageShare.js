@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker'
@@ -6,10 +6,11 @@ import * as Sharing from 'expo-sharing'
 import uploadToAnonymousFilesAsync from 'anonymous-files';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SelectedImageContext } from '../context/SelectImage';
 
 
-export default function ImageShare({ selectedImage, setSelectedImage, navigation }) {
-
+export default function ImageShare({ navigation }) {
+    const { selectedImage, setSelectedImage } = useContext(SelectedImageContext)
     let openShareDialogAsync = async () => {
         if (!(await Sharing.isAvailableAsync())) {
             alert(`The image is available for sharing at: ${selectedImage.remoteUri}`);
@@ -26,6 +27,7 @@ export default function ImageShare({ selectedImage, setSelectedImage, navigation
         } else {
             setSelectedImage({ localUri: null, remoteUri: null });
         }
+        navigation.popToTop()
     }
 
     return (
@@ -72,7 +74,8 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#a3e5f8',
         padding: 20,
-        borderRadius: 5
+        borderRadius: 5,
+        marginBottom: 10
     },
     buttonText: {
         fontSize: 20,

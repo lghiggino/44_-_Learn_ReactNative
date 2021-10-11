@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Platform, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as ImagePicker from 'expo-image-picker'
 import uploadToAnonymousFilesAsync from 'anonymous-files';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SelectedImageContext } from '../context/SelectImage';
+import ImageShare from './ImageShare';
 
-export default function InitialDialog({ selectedImage, setSelectedImage, navigation }) {
-
+export default function InitialDialog({ navigation }) {
+    const { selectedImage, setSelectedImage } = useContext(SelectedImageContext)
     let openImagePickerAsync = async () => {
         let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
@@ -28,6 +30,8 @@ export default function InitialDialog({ selectedImage, setSelectedImage, navigat
         } else {
             setSelectedImage({ localUri: pickerResult.uri, remoteUri: null });
         }
+
+        selectedImage && navigation.navigate('ImageShare')
 
     }
     return (
@@ -65,7 +69,8 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#a3e5f8',
         padding: 20,
-        borderRadius: 5
+        borderRadius: 5,
+        marginBottom: 10
     },
     buttonText: {
         fontSize: 20,

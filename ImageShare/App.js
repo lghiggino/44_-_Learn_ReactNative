@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker'
@@ -7,21 +7,36 @@ import uploadToAnonymousFilesAsync from 'anonymous-files';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+//context provider
+import { SelectedImageContext } from './context/SelectImage';
+//views
 import InitialDialog from './views/InitialDialog';
 import ImageShare from './views/ImageShare';
+import HomeScreen from './views/HomeScreen';
+import DetailsScreen from './views/DetailsScreen';
 
+//navigation
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   const [selectedImage, setSelectedImage] = useState(null)
 
   return (
-    <>
-      {selectedImage ?
-        <ImageShare selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
-        :
-        <InitialDialog selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
-      }
-    </>
+    // <>
+    //   {selectedImage ?
+    //     <ImageShare selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
+    //     :
+    //     <InitialDialog selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
+    //   }
+    // </>
+    <SelectedImageContext.Provider value={{selectedImage, setSelectedImage}}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={InitialDialog} />
+          <Stack.Screen name="ImageShare" component={ImageShare} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SelectedImageContext.Provider>
   )
 }
 

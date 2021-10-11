@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker'
 import * as Sharing from 'expo-sharing'
 import uploadToAnonymousFilesAsync from 'anonymous-files';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
   const [selectedImage, setSelectedImage] = useState(null)
@@ -24,20 +26,32 @@ export default function App() {
 
     if (Platform.OS === 'web') {
       let remoteUri = await uploadToAnonymousFilesAsync(pickerResult.uri);
-      setSelectedImage({ localUri: pickerResult.uri, remoteUri })
+      setSelectedImage({ localUri: pickerResult.uri, remoteUri });
     } else {
-      setSelectedImage({ localUri: pickerResult.uri, remoteUri: null })
+      setSelectedImage({ localUri: pickerResult.uri, remoteUri: null });
     }
+
   }
 
   let openShareDialogAsync = async () => {
     if (!(await Sharing.isAvailableAsync())) {
-      alert(`The image is available for sharing at: ${selectedImage.remoteUri}`)
+      alert(`The image is available for sharing at: ${selectedImage.remoteUri}`);
       return
     }
 
     await Sharing.shareAsync(selectedImage.localUri);
   }
+
+  let clearPhoto = () => {
+    if (Platform.OS === 'web') {
+      let remoteUri = null
+      setSelectedImage({ localUri: null, remoteUri });
+    } else {
+      setSelectedImage({ localUri: null, remoteUri: null });
+    }
+  }
+
+  
 
   if (selectedImage !== null) {
     return (
@@ -51,6 +65,13 @@ export default function App() {
           style={styles.button}
         >
           <Text style={styles.buttonText}>Share this photo</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={clearPhoto}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Clear Photo</Text>
         </TouchableOpacity>
       </View>
     )

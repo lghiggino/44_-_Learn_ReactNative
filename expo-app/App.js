@@ -31,7 +31,7 @@ import { UserContext } from './src/contexts/UserContext';
 Stack = createNativeStackNavigator();
 
 export default function App() {
-
+  //https://reactnavigation.org/docs/params
   return (
     <UserContext.Provider value={"hello from context.provider"}>
       <NavigationContainer>

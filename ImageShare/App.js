@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import * as ImagePicker from 'expo-image-picker'
-import * as Sharing from 'expo-sharing'
-import uploadToAnonymousFilesAsync from 'anonymous-files';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -22,13 +19,6 @@ export default function App() {
   const [selectedImage, setSelectedImage] = useState(null)
 
   return (
-    // <>
-    //   {selectedImage ?
-    //     <ImageShare selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
-    //     :
-    //     <InitialDialog selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
-    //   }
-    // </>
     <SelectedImageContext.Provider value={{selectedImage, setSelectedImage}}>
       <NavigationContainer>
         <Stack.Navigator>

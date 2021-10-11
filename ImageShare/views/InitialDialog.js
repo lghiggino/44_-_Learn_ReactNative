@@ -8,6 +8,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SelectedImageContext } from '../context/SelectImage';
 import ImageShare from './ImageShare';
 
+//components
+import Button from '../components/Button';
+
 export default function InitialDialog({ navigation }) {
     const { selectedImage, setSelectedImage } = useContext(SelectedImageContext)
     let openImagePickerAsync = async () => {
@@ -39,12 +42,10 @@ export default function InitialDialog({ navigation }) {
             <StatusBar style='auto' />
             <Image source={{ uri: 'https://i.imgur.com/TkIrScD.png' }} style={styles.logo} />
             <Text style={styles.instructions}>To share a photo from your phone with a friend, just press the button below!</Text>
-            <TouchableOpacity
+            <Button
                 onPress={openImagePickerAsync}
-                style={styles.button}
-            >
-                <Text style={styles.buttonText}>Pick a photo</Text>
-            </TouchableOpacity>
+                text="Pick a photo"
+            />
         </View>
     )
 }
@@ -65,16 +66,6 @@ const styles = StyleSheet.create({
         color: '#888',
         fontSize: 18,
         marginHorizontal: 15
-    },
-    button: {
-        backgroundColor: '#a3e5f8',
-        padding: 20,
-        borderRadius: 5,
-        marginBottom: 10
-    },
-    buttonText: {
-        fontSize: 20,
-        color: '#fff'
     },
     thumbnail: {
         width: 300,

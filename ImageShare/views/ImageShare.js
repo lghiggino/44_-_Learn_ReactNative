@@ -7,6 +7,7 @@ import uploadToAnonymousFilesAsync from 'anonymous-files';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SelectedImageContext } from '../context/SelectImage';
+import Button from '../components/Button';
 
 
 export default function ImageShare({ navigation }) {
@@ -36,19 +37,16 @@ export default function ImageShare({ navigation }) {
                 source={{ uri: selectedImage.localUri }}
                 style={styles.thumbnail}
             />
-            <TouchableOpacity
+            <Button
                 onPress={openShareDialogAsync}
-                style={styles.button}
-            >
-                <Text style={styles.buttonText}>Share this photo</Text>
-            </TouchableOpacity>
+                text="Share this photo"
+            />
 
-            <TouchableOpacity
+            <Button
                 onPress={clearPhoto}
-                style={styles.button}
-            >
-                <Text style={styles.buttonText}>Clear Photo</Text>
-            </TouchableOpacity>
+                text="Clear Photo"
+            />
+
             <StatusBar style='auto' />
         </View>
     )

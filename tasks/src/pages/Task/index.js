@@ -24,7 +24,7 @@ export default function Task({ navigation }) {
             list.push({ ...task.data(), id: task.id })
         })
         setTasks(list);
-    }
+    } 
 
     useEffect(() => {
         getTasks(database)

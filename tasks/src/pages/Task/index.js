@@ -6,13 +6,11 @@ import {
     TouchableOpacity,
     FlatList
 } from "react-native"
-import { collection, getDocs } from 'firebase/firestore/lite';
+import { collection, getDocs, query, where, doc, deleteDoc } from 'firebase/firestore/lite';
 import database from '../../config/firebaseconfig'
 //estilos e icones
 import styles from './style'
 import { FontAwesome } from '@expo/vector-icons'
-
-
 
 
 export default function Task({ navigation }) {
@@ -30,11 +28,14 @@ export default function Task({ navigation }) {
 
     useEffect(() => {
         getTasks(database)
-    }, [])
+    }, []) 
 
 
     async function deleteTask(id) {
-        await database.collection('tasks').doc(id).delete()
+        console.log(id)
+        await deleteDoc(doc(database, 'tasks', id));
+        //reload the list
+        getTasks(database)
     }
 
     return (
@@ -84,7 +85,9 @@ export default function Task({ navigation }) {
                 </Text>
             </TouchableOpacity>
 
-           
+            {/* <Text>
+                {JSON.stringify(tasks, null, 2)}
+            </Text> */}
         </SafeAreaView>
     )
 }

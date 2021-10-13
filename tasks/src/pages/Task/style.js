@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
         width: '75%',
         alignContent: 'flex-start',
         backgroundColor: '#f5f5f5',
-        padding: 10,
+        paddingVertical: 10,
         paddingHorizontal: 20,
-        borderRadius: 50,
+        borderRadius: 5,
         marginBottom: 5,
-        marginRight: 15,
+        marginRight: 20,
         color: '#666'
     }
 })

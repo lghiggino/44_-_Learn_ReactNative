@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/core";
 import {
     SafeAreaView,
     View,
@@ -26,9 +27,16 @@ export default function Task({ navigation }) {
         setTasks(list);
     } 
 
-    useEffect(() => {
-        getTasks(database)
-    }, []) 
+
+    useFocusEffect(
+        useCallback(() => {
+            getTasks()
+        }, [])
+    )
+
+    // useEffect(() => {
+    //     getTasks(database)
+    // }, []) 
 
 
     async function deleteTask(id) {

@@ -14,8 +14,12 @@ export default function Details({navigation, route}) {
     const [descriptionEdit, setDescriptionEdit] = useState(route.params.description)
     const [taskId, setTaskId] = useState(route.params.id)
 
-    function editTask(){
-        console.log(taskId)
+    async function editTask(){
+        const docData = {
+            description: descriptionEdit,
+        }
+        await setDoc(doc(database, 'tasks', taskId), docData);
+        navigation.popToTop()
     }
 
     return (

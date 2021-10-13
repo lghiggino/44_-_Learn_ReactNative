@@ -1,23 +1,25 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
+    container:{
         flex: 1,
-        backgroundColor: '#aaa',
+        backgroundColor: '#bbc',
         paddingTop: 10
     },
     label:{
         width: '90%',
         marginTop: 20,
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        marginLeft: 20,
         fontSize: 16,
-        color: '#f92e6a'
+        color: '#f92e6a',
+        marginBottom: 10
     },
     textInput:{
         backgroundColor: '#f5f5f5',
         paddingVertical: 15,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#f92e6a'
     },
     buttonBack:{
         position: 'absolute',
@@ -36,12 +38,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     buttonNewTask:{
-        width: 60,
-        height: 60,
+        position: 'absolute',
+        right: 20,
+        top: 160,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
         backgroundColor:'#f92e6a',
         borderRadius:5,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    buttonNewTaskText:{
+        color: '#fff',
+        fontWeight: 'bold'
     }
 
 })

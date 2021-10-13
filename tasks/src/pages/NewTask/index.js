@@ -7,6 +7,7 @@ import database from '../../config/firebaseconfig'
 
 //STYLES
 import styles from './style'
+import { AntDesign } from '@expo/vector-icons';
 
 export default function NewTask({ navigation }) {
     const [newTask, setNewTask] = useState("")
@@ -18,7 +19,7 @@ export default function NewTask({ navigation }) {
         }
         // database.collection('tasks').add(docData)
         await setDoc(doc(database, 'tasks', newTask.split(" ").join("")), docData);
-        navigation.navigate('Task')
+        navigation.popToTop()
     }
     return (
         <SafeAreaView style={styles.container}>
@@ -33,8 +34,9 @@ export default function NewTask({ navigation }) {
             <TouchableOpacity style={styles.buttonNewTask}>
                 <Text
                     onPress={() => { addTask() }}
+                    style={styles.buttonNewTaskText}
                 >
-                    Create
+                    Save
                 </Text>
             </TouchableOpacity>
 
@@ -48,7 +50,11 @@ export default function NewTask({ navigation }) {
                         navigation.popToTop()
                     }}
                 >
-                    back
+                    <AntDesign
+                        name="arrowleft"
+                        size={23}
+                        color="#fff"
+                    />
                 </Text>
             </TouchableOpacity>
         </SafeAreaView>

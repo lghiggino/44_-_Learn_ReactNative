@@ -16,7 +16,7 @@ import { FontAwesome } from '@expo/vector-icons'
 export default function Task({ navigation }) {
     const [tasks, setTasks] = useState([])
 
-    async function getTasks(database) {
+    async function getTasks() {
         const list = []
         const taskCol = collection(database, 'tasks');
         const taskSnapshot = await getDocs(taskCol);
@@ -35,7 +35,7 @@ export default function Task({ navigation }) {
         console.log(id)
         await deleteDoc(doc(database, 'tasks', id));
         //reload the list
-        getTasks(database)
+        getTasks()
     }
 
     return (

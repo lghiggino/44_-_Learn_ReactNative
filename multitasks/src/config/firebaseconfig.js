@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyAzEHPZHoFW7P70G3JxPE7VL8hgPJzS9Fw",
     authDomain: "task-90e33.firebaseapp.com",
@@ -13,6 +14,5 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const database = getFirestore(app)
 export default database

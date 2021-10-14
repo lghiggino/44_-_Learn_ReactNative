@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "tasks",
-    "slug": "tasks",
+    "name": "multitasks",
+    "slug": "multitasks",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

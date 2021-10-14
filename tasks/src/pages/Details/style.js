@@ -37,13 +37,24 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold'
     },
-    buttonNewTask:{
+    buttonEditTask:{
         position: 'absolute',
         right: 20,
         top: 160,
         paddingHorizontal: 20,
         paddingVertical: 10,
         backgroundColor:'#f92e6a',
+        borderRadius:5,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonMarkCompleteTask:{
+        position: 'absolute',
+        left: 20,
+        top: 160,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        backgroundColor:'#a92e6c',
         borderRadius:5,
         justifyContent: 'center',
         alignItems: 'center'

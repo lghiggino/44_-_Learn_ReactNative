@@ -25,19 +25,13 @@ export default function Task({ navigation }) {
             list.push({ ...task.data(), id: task.id })
         })
         setTasks(list);
-    } 
-
+    }
 
     useFocusEffect(
         useCallback(() => {
             getTasks()
         }, [])
     )
-
-    // useEffect(() => {
-    //     getTasks(database)
-    // }, []) 
-
 
     async function deleteTask(id) {
         console.log(id)
@@ -68,11 +62,12 @@ export default function Task({ navigation }) {
                                         color='#f92e6a'
                                     />
                                 </TouchableOpacity>
-                                <Text style={styles.description}
+                                <Text style={item.status === true ? styles.descriptionStriked : styles.description}
                                     onPress={() => {
                                         navigation.navigate('Details', {
                                             id: item.id,
-                                            description: item.description
+                                            description: item.description,
+                                            status: item.status
                                         })
                                     }}
                                 >

@@ -1,39 +1,39 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         backgroundColor: '#bbc',
         paddingTop: 10
     },
-    buttonNewTask:{
+    buttonNewTask: {
         position: 'absolute',
         width: 60,
         height: 60,
-        backgroundColor:'#f92e6a',
-        bottom:30,
-        left:20,
-        borderRadius:50,
+        backgroundColor: '#f92e6a',
+        bottom: 30,
+        left: 20,
+        borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    iconButton:{
+    iconButton: {
         color: '#fff',
         fontSize: 25,
         fontWeight: 'bold'
     },
-    tasks:{
+    tasks: {
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 5
     },
-    deleteTask:{
+    deleteTask: {
         justifyContent: 'center',
         paddingLeft: 20
     },
-    description:{
-        width: '75%',
+    description: {
+        width: '80%',
         alignContent: 'flex-start',
         backgroundColor: '#f5f5f5',
         paddingVertical: 10,
@@ -42,6 +42,18 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginRight: 20,
         color: '#666'
+    },
+    descriptionStriked:{
+        width: '80%',
+        alignContent: 'flex-start',
+        backgroundColor: '#f5f5f5',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        marginBottom: 5,
+        marginRight: 20,
+        color: '#666',
+        textDecorationLine: "line-through"
     }
 })
 

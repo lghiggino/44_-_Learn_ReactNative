@@ -10,13 +10,24 @@ import styles from './style'
 import { AntDesign } from '@expo/vector-icons';
 
 
-export default function Details({navigation, route}) {
+export default function Details({ navigation, route }) {
     const [descriptionEdit, setDescriptionEdit] = useState(route.params.description)
     const [taskId, setTaskId] = useState(route.params.id)
+    const [taskStatus, setTasksStatus] = useState(route.params.status)
 
-    async function editTask(){
+    async function editTask() {
         const docData = {
             description: descriptionEdit,
+            status: taskStatus
+        }
+        await setDoc(doc(database, 'tasks', taskId), docData);
+        navigation.popToTop()
+    }
+
+    async function completeTask() {
+        const docData = {
+            description: descriptionEdit,
+            status: !taskStatus
         }
         await setDoc(doc(database, 'tasks', taskId), docData);
         navigation.popToTop()
@@ -31,7 +42,15 @@ export default function Details({navigation, route}) {
                 value={descriptionEdit}
                 multiline
             />
-            <TouchableOpacity style={styles.buttonNewTask}>
+            <TouchableOpacity style={styles.buttonMarkCompleteTask}>
+                <Text
+                    onPress={() => { completeTask() }}
+                    style={styles.buttonNewTaskText}
+                >
+                    Mark Complete
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonEditTask}>
                 <Text
                     onPress={() => { editTask() }}
                     style={styles.buttonNewTaskText}

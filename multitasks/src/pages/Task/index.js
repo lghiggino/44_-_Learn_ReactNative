@@ -7,14 +7,16 @@ import {
     TouchableOpacity,
     FlatList
 } from "react-native"
-import { collection, getDocs, query, where, doc, deleteDoc } from 'firebase/firestore/lite';
-import database from '../../config/firebaseconfig'
+//Firebase
+import {getFirestore, collection, getDocs, query, where, doc, deleteDoc } from 'firebase/firestore/lite';
+import app from '../../config/firebaseconfig'
 //estilos e icones
 import styles from './style'
 import { FontAwesome } from '@expo/vector-icons'
 
 
 export default function Task({ navigation }) {
+    const database = getFirestore(app)
     const [tasks, setTasks] = useState([])
 
     async function getTasks() {

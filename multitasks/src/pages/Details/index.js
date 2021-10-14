@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, TextInput, TouchableOpacity } from "react-native"
 
 //Firebase
-import { collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore/lite';
-import database from '../../config/firebaseconfig'
+import {getFirestore, collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore/lite';
+import app from '../../config/firebaseconfig'
 
 //STYLES
 import styles from './style'
@@ -11,6 +11,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 export default function Details({ navigation, route }) {
+    const database = getFirestore(app)
     const [descriptionEdit, setDescriptionEdit] = useState(route.params.description)
     const [taskId, setTaskId] = useState(route.params.id)
     const [taskStatus, setTasksStatus] = useState(route.params.status)
@@ -21,7 +22,7 @@ export default function Details({ navigation, route }) {
             status: taskStatus
         }
         await setDoc(doc(database, 'tasks', taskId), docData);
-        navigation.popToTop()
+        navigation.navigate('Task')
     }
 
     async function completeTask() {
@@ -30,7 +31,7 @@ export default function Details({ navigation, route }) {
             status: !taskStatus
         }
         await setDoc(doc(database, 'tasks', taskId), docData);
-        navigation.popToTop()
+        navigation.navigate('Task')
     }
 
     return (
@@ -47,7 +48,7 @@ export default function Details({ navigation, route }) {
                     onPress={() => { completeTask() }}
                     style={styles.buttonNewTaskText}
                 >
-                    Mark Complete
+                    {taskStatus === false ? "Mark Complete" : "Make Incomplete"}
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonEditTask}>
@@ -65,7 +66,7 @@ export default function Details({ navigation, route }) {
                 <Text
                     style={styles.iconButton}
                     onPress={() => {
-                        navigation.popToTop()
+                        navigation.navigate('Task')
                     }}
                 >
                     <AntDesign

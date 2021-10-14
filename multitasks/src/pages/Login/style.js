@@ -6,6 +6,36 @@ const styles = StyleSheet.create({
         backgroundColor: '#bbc',
         paddingTop: 10
     },
+    title:{
+        textAlign: 'center',
+
+    },
+    label:{
+        width: '90%',
+        marginTop: 20,
+        marginLeft: 20,
+        fontSize: 16,
+        color: '#f92e6a',
+        marginBottom: 10
+    },
+    textInput:{
+        backgroundColor: '#f5f5f5',
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        borderBottomWidth: 1,
+        borderBottomColor: '#f92e6a'
+    },
+    buttonBack:{
+        position: 'absolute',
+        width: 60,
+        height: 60,
+        backgroundColor:'#f92e6a',
+        bottom:30,
+        left:20,
+        borderRadius:50,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 })
 
 export default styles

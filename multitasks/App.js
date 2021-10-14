@@ -13,15 +13,15 @@ const Stack = createStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Register'>
-        <Stack.Screen
-          name='Register'
-          component={Register}
-          options={{ headerTintColor: '#f92e6a' }}
-        />
+      <Stack.Navigator initialRouteName='Login'>
         <Stack.Screen
           name='Login'
           component={Login}
+          options={{ headerTintColor: '#f92e6a' }}
+        />
+         <Stack.Screen
+          name='Register'
+          component={Register}
           options={{ headerTintColor: '#f92e6a' }}
         />
         <Stack.Screen

@@ -17,12 +17,13 @@ export default function App() {
         <Stack.Screen
           name='Login'
           component={Login}
-          options={{ headerTintColor: '#f92e6a' }}
+          options={{ headerShown: false}}
+          
         />
          <Stack.Screen
           name='Register'
           component={Register}
-          options={{ headerTintColor: '#f92e6a' }}
+          options={{ headerShown: false}}
         />
         <Stack.Screen
           name='Task'

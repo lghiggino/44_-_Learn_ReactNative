@@ -16,7 +16,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from '../../config/firebaseconfig'
 //estilos e icones
 import styles from './style'
-import { FontAwesome } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 
 export default function Login({ navigation }) {
@@ -24,9 +24,20 @@ export default function Login({ navigation }) {
         email: "",
         password: ""
     })
-    const [errorLogin, setErrorLogin] = useState("")
+    const [error, setError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
 
     function firebaseLogin() {
+        if (!user.email) {
+            setError(true)
+            setErrorMessage("É necessário preencher um email")
+            return
+        }
+        if (!user.password) {
+            setError(true)
+            setErrorMessage("É necessário preencher uma senha")
+            return
+        }
         console.log(user)
     }
 
@@ -46,7 +57,7 @@ export default function Login({ navigation }) {
                     value={user.email}
                     onChangeText={(text) => setUser({ ...user, email: text })}
                 />
-                <Text style={styles.label}>Senha</Text>
+                <Text style={styles.label}>Password</Text>
                 <TextInput
                     style={styles.textInput}
                     placeholder='enter your password'
@@ -56,21 +67,45 @@ export default function Login({ navigation }) {
                     onChangeText={(text) => setUser({ ...user, password: text })}
                 />
                 <TouchableOpacity
+                    style={styles.loginButton}
                     onPress={() => { firebaseLogin() }}
 
                 >
-                    <Text>ENTRAR</Text>
+                    <Text
+                        style={styles.buttonText}
+                    >
+                        LOGIN
+                    </Text>
                 </TouchableOpacity>
             </View>
 
-            <View>
-                <Text style={styles.label}>
-                    Não possui login?
+            {error &&
+                <View style={styles.contentAlert}>
+                    <MaterialCommunityIcons
+                        name='alert-circle'
+                        size={24}
+                        color='#fff'
+                        style={styles.alertCircle}
+                    />
+                    <Text style={styles.errorMessage}>{errorMessage}</Text>
+                </View>
+            }
+
+            <View style={styles.footer}>
+                <Text
+                    style={styles.footerLabel}
+                >
+                    Don't have a login?
                 </Text>
                 <TouchableOpacity
+                    style={styles.footerButton}
                     onPress={() => { navigation.navigate('Register') }}
                 >
-                    <Text>Clique aqui para se registrar</Text>
+                    <Text
+                        style={styles.buttonText}
+                    >
+                        Register Now
+                    </Text>
                 </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>

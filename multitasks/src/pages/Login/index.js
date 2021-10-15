@@ -30,12 +30,12 @@ export default function Login({ navigation }) {
     function firebaseLogin() {
         if (!user.email) {
             setError(true)
-            setErrorMessage("É necessário preencher um email")
+            setErrorMessage("Must provide an email")
             return
         }
         if (!user.password) {
             setError(true)
-            setErrorMessage("É necessário preencher uma senha")
+            setErrorMessage("Must provide a password")
             return
         }
         console.log(user)
@@ -91,23 +91,22 @@ export default function Login({ navigation }) {
                 </View>
             }
 
-            <View style={styles.footer}>
+            <View style={styles.register}>
                 <Text
                     style={styles.footerLabel}
                 >
                     Don't have a login?
                 </Text>
-                <TouchableOpacity
-                    style={styles.footerButton}
+
+                <Text
                     onPress={() => { navigation.navigate('Register') }}
+                    style={styles.footerButton}
                 >
-                    <Text
-                        style={styles.buttonText}
-                    >
-                        Register Now
-                    </Text>
-                </TouchableOpacity>
+                    Register Now
+                </Text>
             </View>
+
+
         </KeyboardAvoidingView>
     )
 }

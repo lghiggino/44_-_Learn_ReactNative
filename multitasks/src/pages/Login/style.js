@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 20,
         backgroundColor: '#f92e6a',
-        paddingHorizontal: 20,
+        paddingHorizontal: 50,
         paddingVertical: 10,
         borderRadius: 5,
     },
@@ -66,28 +66,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    footer:{
-        backgroundColor: '#aab',
-        position: 'absolute',
-        bottom: 0,
-        width: '100%'
+    register:{
+        display: 'flex',
+        flexDirection: 'row',
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: 'baseline',
     },
     footerLabel:{
-        marginLeft: 'auto',
-        marginRight: 'auto',
         color: '#fff',
         fontWeight: 'bold',
         marginTop: 10
     },
     footerButton:{
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: 20,
-        marginBottom: 20,
-        backgroundColor: '#f92e6a',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        borderRadius: 5,
+        marginLeft: 10,
+        color: '#f92e6a',
+        textDecorationLine: 'underline',
+        textDecorationColor: '#f92e6a',
+        fontWeight: 'bold'
     }
 })
 

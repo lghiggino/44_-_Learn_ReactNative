@@ -1,19 +1,26 @@
 import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         backgroundColor: '#f5f5f5',
         paddingTop: Platform.OS === 'ios' ? 0 : 100
     },
-    title:{
+    title: {
         textAlign: 'center',
         color: '#f92e6a',
         fontWeight: 'bold',
         fontSize: 36,
         marginBottom: 10
     },
-    label:{
+    subtitle: {
+        textAlign: 'center',
+        color: '#f92e6a',
+        fontWeight: 'bold',
+        fontSize: 18,
+        marginBottom: 10
+    },
+    label: {
         width: '90%',
         marginTop: 20,
         marginLeft: 20,
@@ -21,14 +28,14 @@ const styles = StyleSheet.create({
         color: '#f92e6a',
         marginBottom: 10
     },
-    textInput:{
+    textInput: {
         backgroundColor: '#f5f5f5',
         paddingVertical: 15,
         paddingHorizontal: 20,
         borderBottomWidth: 1,
         borderBottomColor: '#f92e6a'
     },
-    loginButton:{
+    loginButton: {
         marginLeft: 'auto',
         marginRight: 'auto',
         marginTop: 20,
@@ -38,11 +45,11 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 5,
     },
-    buttonText:{
+    buttonText: {
         color: '#fff',
         fontWeight: 'bold'
     },
-    contentAlert:{
+    contentAlert: {
         backgroundColor: '#aaa',
         paddingTop: 10,
         paddingBottom: 20,
@@ -52,34 +59,34 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         alignItems: 'baseline',
     },
-    errorMessage:{
+    errorMessage: {
         color: '#f92e6a',
     },
-    buttonBack:{
+    buttonBack: {
         position: 'absolute',
         width: 60,
         height: 60,
-        backgroundColor:'#f92e6a',
-        bottom:30,
-        left:20,
-        borderRadius:50,
+        backgroundColor: '#f92e6a',
+        bottom: 30,
+        left: 20,
+        borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    footer:{
+    footer: {
         backgroundColor: '#aab',
         position: 'absolute',
         bottom: 0,
         width: '100%'
     },
-    footerLabel:{
+    footerLabel: {
         marginLeft: 'auto',
         marginRight: 'auto',
         color: '#fff',
         fontWeight: 'bold',
         marginTop: 10
     },
-    footerButton:{
+    footerButton: {
         marginLeft: 'auto',
         marginRight: 'auto',
         marginTop: 20,

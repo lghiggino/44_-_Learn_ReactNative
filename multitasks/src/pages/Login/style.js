@@ -3,7 +3,7 @@ import { StyleSheet, Platform } from "react-native";
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#bbc',
+        backgroundColor: '#f5f5f5',
         paddingTop: Platform.OS === 'ios' ? 0 : 100
     },
     title:{
@@ -26,12 +26,14 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 20,
         borderBottomWidth: 1,
-        borderBottomColor: '#f92e6a'
+        borderBottomColor: '#f92e6a',
+        marginLeft: 20,
+        marginRight: 20
     },
     loginButton:{
         marginLeft: 'auto',
         marginRight: 'auto',
-        marginTop: 20,
+        marginTop: 30,
         marginBottom: 20,
         backgroundColor: '#f92e6a',
         paddingHorizontal: 50,
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
         alignItems: 'baseline',
     },
     footerLabel:{
-        color: '#fff',
+        color: '#aaa',
         fontWeight: 'bold',
         marginTop: 10
     },

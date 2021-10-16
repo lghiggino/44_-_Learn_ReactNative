@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#bbc',
-        paddingTop: 10
+        backgroundColor: '#f5f5f5',
+        paddingTop: Platform.OS === 'ios' ? 0 : 20
     },
     label:{
         width: '90%',
@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 20,
         borderBottomWidth: 1,
-        borderBottomColor: '#f92e6a'
+        borderBottomColor: '#f92e6a',
+        marginLeft: 20,
+        marginRight: 20
     },
     buttonBack:{
         position: 'absolute',

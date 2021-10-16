@@ -41,6 +41,11 @@ export default function Login({ navigation }) {
         console.log(user)
     }
 
+    /**
+     * CONTINUAR DE 58:20
+     */
+
+
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}

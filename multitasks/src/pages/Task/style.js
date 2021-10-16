@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
+    container:{
         flex: 1,
-        backgroundColor: '#bbc',
-        paddingTop: 10
+        backgroundColor: '#f5f5f5',
+        paddingTop: Platform.OS === 'ios' ? 0 : 20
     },
     buttonNewTask: {
         position: 'absolute',

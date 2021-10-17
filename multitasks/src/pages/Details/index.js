@@ -15,13 +15,14 @@ export default function Details({ navigation, route }) {
     const [descriptionEdit, setDescriptionEdit] = useState(route.params.description)
     const [taskId, setTaskId] = useState(route.params.id)
     const [taskStatus, setTasksStatus] = useState(route.params.status)
+    const [userUniqueDatabase, setUserUniqueDatabase] = useState(route.params.userUid)
 
     async function editTask() {
         const docData = {
             description: descriptionEdit,
             status: taskStatus
         }
-        await setDoc(doc(database, 'tasks', taskId), docData);
+        await setDoc(doc(database, userUniqueDatabase, taskId), docData);
         navigation.navigate('Task')
     }
 
@@ -30,7 +31,7 @@ export default function Details({ navigation, route }) {
             description: descriptionEdit,
             status: !taskStatus
         }
-        await setDoc(doc(database, 'tasks', taskId), docData);
+        await setDoc(doc(database, userUniqueDatabase, taskId), docData);
         navigation.navigate('Task')
     }
 

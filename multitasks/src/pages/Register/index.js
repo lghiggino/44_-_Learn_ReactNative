@@ -39,47 +39,21 @@ export default function Register({ navigation }) {
             setErrorMessage("Must provide a password")
             return
         }
-
-        const auth = getAuth();
-        const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password)
-        console.log(userCredential.user.uid)
-        const database = getFirestore(app)
-        const docData = {
-            description: 'Welcome to Multitasks. Have fun!',
-            status: false,
+        try {
+            const auth = getAuth();
+            const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password)
+            const database = getFirestore(app)
+            const docData = {
+                description: 'Welcome to Multitasks. Have fun!',
+                status: false,
+            }
+            const newDoc = await setDoc(doc(database, userUid, 'hello'), docData);
+            navigation.navigate('Task', { userUid: userCredential.user.uid })
+        } catch (error) {
+            const errorMessage = error.message
+            setError(true)
+            setErrorMessage(errorMessage)
         }
-        const newDoc = await setDoc(doc(database, userUid, 'hello'), docData);
-        navigation.navigate('Tasks', { userUid: userCredential.user.uid })
-        // createUserWithEmailAndPassword(auth, user.email, user.password)
-        //     .then((userCredential) => {
-        //         console.log("entrou no then [1]")
-        //         const user = userCredential.user;
-        //         const userUid = user.uid
-        //         // navigation.navigate('Task', {
-        //         //     userUid: user.uid,
-        //         // })
-        //     })
-        //     // .then((user) => {
-        //     //     console.log(user)
-        //     //     console.log("entrou no then [2]")
-        //     //     const database = getFirestore(app)
-        //     //     const docData = {
-        //     //         description: 'Welcome to Multitasks. Have fun!',
-        //     //         status: false,
-        //     //     }
-        //     //     setDoc(doc(database, userUid, 'hello'), docData);
-        //     // })
-        //     // .then((user) => {
-        //     //     navigation.navigate('Task', {
-        //     //         userUid: user.uid,
-        //     //     })
-        //     // })
-        //     .catch((error) => {
-        //         // const errorCode = error.code;
-        //         const errorMessage = error.message
-        //         setError(true)
-        //         setErrorMessage(errorMessage)
-        //     });
     }
 
     return (

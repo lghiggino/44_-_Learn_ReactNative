@@ -8,25 +8,38 @@ import {
     FlatList
 } from "react-native"
 //Firebase
-import {getFirestore, collection, getDocs, query, where, doc, deleteDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, query, where, doc, deleteDoc } from 'firebase/firestore/lite';
+import { getAuth, signOut } from "firebase/auth";
 import app from '../../config/firebaseconfig'
 //estilos e icones
 import styles from './style'
 import { FontAwesome } from '@expo/vector-icons'
 
 
-export default function Task({ navigation }) {
+export default function Task({ navigation, route }) {
     const database = getFirestore(app)
+    const [userUniqueDatabase, setUserUniqueDatabase] = useState(route.params.userUid)
     const [tasks, setTasks] = useState([])
+
+    console.log(userUniqueDatabase)
 
     async function getTasks() {
         const list = []
-        const taskCol = collection(database, 'tasks');
+        const taskCol = collection(database, userUniqueDatabase);
         const taskSnapshot = await getDocs(taskCol);
         taskSnapshot.forEach(task => {
             list.push({ ...task.data(), id: task.id })
         })
         setTasks(list);
+    }
+
+    async function logout() {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            navigation.navigate('Login')
+        }).catch((error) => {
+            console.log(error)
+        });
     }
 
     useFocusEffect(
@@ -36,8 +49,7 @@ export default function Task({ navigation }) {
     )
 
     async function deleteTask(id) {
-        console.log(id)
-        await deleteDoc(doc(database, 'tasks', id));
+        await deleteDoc(doc(database, userUniqueDatabase, id));
         //reload the list
         getTasks()
     }
@@ -69,7 +81,8 @@ export default function Task({ navigation }) {
                                         navigation.navigate('Details', {
                                             id: item.id,
                                             description: item.description,
-                                            status: item.status
+                                            status: item.status,
+                                            userUid: userUniqueDatabase,
                                         })
                                     }}
                                 >
@@ -87,6 +100,14 @@ export default function Task({ navigation }) {
             >
                 <Text style={styles.iconButton}>
                     +
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.buttonLogOut}
+                onPress={() => { logout() }}
+            >
+                <Text style={styles.iconButton}>
+                    L
                 </Text>
             </TouchableOpacity>
 

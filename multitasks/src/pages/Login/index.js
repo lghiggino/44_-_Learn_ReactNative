@@ -12,7 +12,7 @@ import {
 } from "react-native"
 //Firebase
 import { getFirestore, collection, getDocs, query, where, doc, deleteDoc } from 'firebase/firestore/lite';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import app from '../../config/firebaseconfig'
 //estilos e icones
 import styles from './style'
@@ -27,6 +27,19 @@ export default function Login({ navigation }) {
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
 
+    // useEffect(() => {
+    //     const auth = getAuth();
+    //     onAuthStateChanged(auth, (user) => {
+    //         if (user) {
+    //             const userUid = user.uid;
+    //             console.log(userUid)
+    //             navigation.navigate('Task', {
+    //                 userUid: user.uid,
+    //             })
+    //         }
+    //     });
+    // })
+
     function firebaseLogin() {
         if (!user.email) {
             setError(true)
@@ -38,13 +51,23 @@ export default function Login({ navigation }) {
             setErrorMessage("Must provide a password")
             return
         }
-        console.log(user)
+
+
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, user.email, user.password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                navigation.navigate('Task', {
+                    userUid: user.uid,
+                })
+            })
+            .catch((error) => {
+                // const errorCode = error.code;
+                const errorMessage = error.message
+                setError(true)
+                setErrorMessage(errorMessage)
+            })
     }
-
-    /**
-     * CONTINUAR DE 58:20
-     */
-
 
     return (
         <KeyboardAvoidingView

@@ -17,6 +17,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    buttonLogOut:{
+        position: 'absolute',
+        width: 60,
+        height: 60,
+        backgroundColor: '#f92e6a',
+        bottom: 30,
+        right: 20,
+        borderRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     iconButton: {
         color: '#fff',
         fontSize: 25,
@@ -26,7 +37,8 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 5
+        marginTop: 5,
+        backgroundColor: '#fff'
     },
     deleteTask: {
         justifyContent: 'center',
@@ -35,7 +47,7 @@ const styles = StyleSheet.create({
     description: {
         width: '80%',
         alignContent: 'flex-start',
-        backgroundColor: '#f5f5f5',
+        // backgroundColor: '#f5f5f5',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
@@ -46,7 +58,7 @@ const styles = StyleSheet.create({
     descriptionStriked:{
         width: '80%',
         alignContent: 'flex-start',
-        backgroundColor: '#f5f5f5',
+        // backgroundColor: '#f5f5f5',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,

@@ -9,18 +9,18 @@ import app from '../../config/firebaseconfig'
 import styles from './style'
 import { AntDesign } from '@expo/vector-icons';
 
-export default function NewTask({ navigation }) {
+export default function NewTask({ navigation, route }) {
     const database = getFirestore(app)
     const [newTask, setNewTask] = useState("")
+    const [userUniqueDatabase, setUserUniqueDatabase] = useState(route.params.userUid)
 
     async function addTask() {
         const docData = {
             description: newTask,
             status: false,
         }
-        // database.collection('tasks').add(docData)
-        await setDoc(doc(database, 'tasks', newTask.split(" ").join("")), docData);
-        navigation.navigate('Task')
+        await setDoc(doc(database, userUniqueDatabase, newTask.split(" ").join("")), docData);
+        navigation.navigate('Task', { userUid: userUniqueDatabase })
     }
     return (
         <SafeAreaView style={styles.container}>
@@ -48,7 +48,7 @@ export default function NewTask({ navigation }) {
                     style={styles.iconButton}
                     onPress={() => {
                         setNewTask("")
-                        navigation.navigate('Task')
+                        navigation.navigate('Task', { userUid: userUniqueDatabase })
                     }}
                 >
                     <AntDesign

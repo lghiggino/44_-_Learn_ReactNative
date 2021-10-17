@@ -27,19 +27,6 @@ export default function Login({ navigation }) {
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
 
-    // useEffect(() => {
-    //     const auth = getAuth();
-    //     onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             const userUid = user.uid;
-    //             console.log(userUid)
-    //             navigation.navigate('Task', {
-    //                 userUid: user.uid,
-    //             })
-    //         }
-    //     });
-    // })
-
     function firebaseLogin() {
         if (!user.email) {
             setError(true)

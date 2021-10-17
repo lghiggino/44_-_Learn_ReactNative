@@ -23,7 +23,7 @@ export default function Details({ navigation, route }) {
             status: taskStatus
         }
         await setDoc(doc(database, userUniqueDatabase, taskId), docData);
-        navigation.navigate('Task')
+        navigation.navigate('Task', { userUid: userUniqueDatabase })
     }
 
     async function completeTask() {
@@ -32,7 +32,7 @@ export default function Details({ navigation, route }) {
             status: !taskStatus
         }
         await setDoc(doc(database, userUniqueDatabase, taskId), docData);
-        navigation.navigate('Task')
+        navigation.navigate('Task', { userUid: userUniqueDatabase })
     }
 
     return (
@@ -67,7 +67,7 @@ export default function Details({ navigation, route }) {
                 <Text
                     style={styles.iconButton}
                     onPress={() => {
-                        navigation.navigate('Task')
+                        navigation.navigate('Task', { userUid: userUniqueDatabase })
                     }}
                 >
                     <AntDesign

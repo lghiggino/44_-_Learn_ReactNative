@@ -21,8 +21,6 @@ export default function Task({ navigation, route }) {
     const [userUniqueDatabase, setUserUniqueDatabase] = useState(route.params.userUid)
     const [tasks, setTasks] = useState([])
 
-    console.log(userUniqueDatabase)
-
     async function getTasks() {
         const list = []
         const taskCol = collection(database, userUniqueDatabase);
@@ -96,7 +94,7 @@ export default function Task({ navigation, route }) {
 
             <TouchableOpacity
                 style={styles.buttonNewTask}
-                onPress={() => { navigation.navigate('NewTask') }}
+                onPress={() => { navigation.navigate('NewTask', { userUid: userUniqueDatabase }) }}
             >
                 <Text style={styles.iconButton}>
                     +

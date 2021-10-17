@@ -28,7 +28,6 @@ export default function Register({ navigation }) {
     const [errorMessage, setErrorMessage] = useState("")
 
     async function firebaseCreateUser() {
-        console.log("++++++++++++++++++", user.email, user.password)
         if (!user.email) {
             setError(true)
             setErrorMessage("Must provide an email")

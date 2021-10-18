@@ -14,6 +14,8 @@ import app from '../../config/firebaseconfig'
 //estilos e icones
 import styles from './style'
 import { FontAwesome } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 
 export default function Task({ navigation, route }) {
@@ -96,17 +98,22 @@ export default function Task({ navigation, route }) {
                 style={styles.buttonNewTask}
                 onPress={() => { navigation.navigate('NewTask', { userUid: userUniqueDatabase }) }}
             >
-                <Text style={styles.iconButton}>
-                    +
-                </Text>
+                <Ionicons
+                    style={styles.iconButton}
+                    name="create-sharp"
+                    size={24}
+                    color="#fff"
+                />
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.buttonLogOut}
                 onPress={() => { logout() }}
             >
-                <Text style={styles.iconButton}>
-                    L
-                </Text>
+                <AntDesign
+                    style={styles.iconButton}
+                    name="logout"
+                    size={24} color="#fff"
+                />
             </TouchableOpacity>
 
             {/* <Text>

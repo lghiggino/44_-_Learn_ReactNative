@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useFocusEffect } from "@react-navigation/core";
 import {
     SafeAreaView,
     View,
@@ -45,9 +44,11 @@ export default function Register({ navigation }) {
             const docData = {
                 description: 'Welcome to Multitasks. Have fun!',
                 status: false,
+                
             }
+            const userUid = userCredential.user.uid
             const newDoc = await setDoc(doc(database, userUid, 'hello'), docData);
-            navigation.navigate('Task', { userUid: userCredential.user.uid })
+            navigation.navigate('Task', { userUid: userUid })
         } catch (error) {
             const errorMessage = error.message
             setError(true)

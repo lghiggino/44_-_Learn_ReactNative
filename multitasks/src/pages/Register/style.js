@@ -23,17 +23,19 @@ const styles = StyleSheet.create({
     label: {
         width: '90%',
         marginTop: 20,
-        marginLeft: 20,
+        marginLeft: 'auto',
         fontSize: 16,
         color: '#f92e6a',
         marginBottom: 10
     },
     textInput: {
         backgroundColor: '#f5f5f5',
-        paddingVertical: 15,
-        paddingHorizontal: 20,
+        paddingVertical: 10,
         borderBottomWidth: 1,
-        borderBottomColor: '#f92e6a'
+        borderBottomColor: '#f92e6a',
+        width: '80%',
+        marginLeft: 'auto',
+        marginRight: 'auto'
     },
     loginButton: {
         marginLeft: 'auto',

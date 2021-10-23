@@ -93,6 +93,11 @@ export default function Register({ navigation }) {
                         SIGN UP
                     </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                    styles={styles.googgleLoginButton}
+                    onPress={() => {createGoogleUser()}}>
+                        <Text>Login With Google</Text>
+                </TouchableOpacity>
             </View>
 
             {error &&

@@ -7,13 +7,14 @@ import Login from './src/pages/Login';
 import Task from './src/pages/Task/';
 import NewTask from './src/pages/NewTask/';
 import Details from './src/pages/Details/';
+import Components from './src/pages/Components';
 //Navigation
 const Stack = createStackNavigator()
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'>
+      <Stack.Navigator initialRouteName='Components'>
         <Stack.Screen
           name='Login'
           component={Login}
@@ -43,8 +44,16 @@ export default function App() {
           component={Details}
           options={{ headerTintColor: '#f92e6a' }}
         />
+        <Stack.Screen
+          name='Components'
+          component={Components}
+          options={{ headerTintColor: '#f92e6a' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
+
+//guardar o uniqueID no contexto?
+//checar as regras de read, write

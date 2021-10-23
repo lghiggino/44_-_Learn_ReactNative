@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: '#f5f5f5',
-        paddingTop: Platform.OS === 'ios' ? 0 : 20
+        paddingTop: Platform.OS === 'ios' ? 0 : 20,
     },
     buttonNewTask: {
         position: 'absolute',

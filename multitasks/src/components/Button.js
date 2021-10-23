@@ -10,8 +10,7 @@ export default function Button(props) {
             alignItems: 'center',
             justifyContent: 'center',
             paddingVertical: 15,
-            borderRadius: 4,
-            elevation: 3,
+            elevation: 8,
         }
         switch (props.color) {
             case "primary":
@@ -27,8 +26,11 @@ export default function Button(props) {
                 inlineStyle.backgroundColor = '#999'
         }
         switch (props.size) {
-            case "small":
+            case "micro":
                 inlineStyle.maxWidth = "25%"
+                break
+            case "small":
+                inlineStyle.maxWidth = "33%"
                 break
             case "medium":
                 inlineStyle.maxWidth = "50%"
@@ -37,7 +39,14 @@ export default function Button(props) {
                 inlineStyle.maxWidth = "75%"
                 break
         }
-        //switch(props.shape){}
+        switch(props.shape){
+            case "round":
+                inlineStyle.borderRadius = 50
+            break
+            default:
+                inlineStyle.borderRadius = 5
+
+        }
         console.log(inlineStyle)
         return inlineStyle
     }
@@ -58,33 +67,12 @@ export default function Button(props) {
 
 
 const styles = StyleSheet.create({
-    default: {
-        backgroundColor: '#999',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        maxWidth: 120
-    },
-    primary: {
-        backgroundColor: '#f92e6a',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        maxWidth: 120
-    },
-    success: {
-        backgroundColor: '#4caf50',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        maxWidth: 120
-    },
     textLight: {
         fontSize: 16,
         lineHeight: 21,
         fontWeight: 'bold',
         letterSpacing: 0.25,
         color: '#f5f5f5',
-        borderColor: 'red',
-        borderStyle: "solid",
-        borderWidth: 2
     },
     textDark: {
         color: '#333',

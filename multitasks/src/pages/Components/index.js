@@ -1,6 +1,7 @@
 import React from "react";
 import {
     SafeAreaView,
+    Text
 
 } from "react-native"
 //estilos e icones
@@ -12,6 +13,7 @@ import Button from "../../components/Button";
 export default function Components({ navigation, route }) {
     return (
         <SafeAreaView style={styles.container}>
+            <Text>Button Sizes</Text>
             <Button
                 buttonText={"size = small"}
                 onPress={() => { console.log("") }}
@@ -34,6 +36,21 @@ export default function Components({ navigation, route }) {
                 buttonText={"without size prop"}
                 onPress={() => { console.log("hello") }}
                 color="danger"
+            />
+
+            <Text>Button Shapes</Text>
+            <Button
+                buttonText={"shape = round"}
+                onPress={() => { console.log("hello") }}
+                color="success"
+                size="medium"
+                shape="round"
+            />
+            <Button
+                buttonText={"without shape prop"}
+                onPress={() => { console.log("hello") }}
+                color="danger"
+                size="medium"
             />
         </SafeAreaView>
     )

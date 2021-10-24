@@ -5,7 +5,7 @@ export default function Button(props) {
     const { buttonText, onPress, primary, success, color, size, shape, ...rest } = props
 
     const styleMaker = () => {
-        console.log("from StyleCreator")
+        // console.log("from StyleCreator")
         const inlineStyle = {
             alignItems: 'center',
             justifyContent: 'center',
@@ -45,7 +45,6 @@ export default function Button(props) {
             break
             default:
                 inlineStyle.borderRadius = 5
-
         }
         console.log(inlineStyle)
         return inlineStyle
@@ -72,11 +71,13 @@ const styles = StyleSheet.create({
         lineHeight: 21,
         fontWeight: 'bold',
         letterSpacing: 0.25,
-        color: '#f5f5f5',
+        color: '#f5f5f5'
     },
     textDark: {
-        color: '#333',
-        // marginLeft: 'auto',
-        // marginRight: 'auto'
+        fontSize: 16,
+        lineHeight: 21,
+        fontWeight: 'bold',
+        letterSpacing: 0.25,
+        color: '#333'
     }
 })

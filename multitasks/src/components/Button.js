@@ -1,60 +1,35 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, Platform } from "react-native";
 import PropTypes from 'prop-types'
+//CSSMAPS
+import { colorMap } from "../utils/cssMaps";
+import { widthMap } from "../utils/cssMaps";
+import { borderRadiusMap } from "../utils/cssMaps";
 
 export default function Button(props) {
     const { buttonText, onPress, color, size, shape, ...rest } = props
 
-    const styleMaker = () => {
-        // console.log("from StyleCreator")
+    const styleMaker = (props) => {
+        //base Style
         const inlineStyle = {
             alignItems: 'center',
             justifyContent: 'center',
             paddingVertical: 15,
             elevation: 8,
         }
-        switch (props.color) {
-            case "primary":
-                inlineStyle.backgroundColor = '#f92e6a'
-                break
-            case "success":
-                inlineStyle.backgroundColor = '#4caf50'
-                break
-            case "danger":
-                inlineStyle.backgroundColor = '#f44336'
-                break
-            default:
-                inlineStyle.backgroundColor = '#999'
-        }
-        switch (props.size) {
-            case "micro":
-                inlineStyle.maxWidth = "25%"
-                break
-            case "small":
-                inlineStyle.maxWidth = "33%"
-                break
-            case "medium":
-                inlineStyle.maxWidth = "50%"
-                break
-            case "large":
-                inlineStyle.maxWidth = "75%"
-                break
-        }
-        switch (props.shape) {
-            case "round":
-                inlineStyle.borderRadius = 50
-                break
-            default:
-                inlineStyle.borderRadius = 5
-        }
-        console.log(inlineStyle)
+
+        inlineStyle.backgroundColor = colorMap[props.color] || '#999'
+        inlineStyle.maxWidth = widthMap[props.size] || "100%"
+        inlineStyle.borderRadius = borderRadiusMap[props.shape] || 5
+
         return inlineStyle
     }
+
 
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={styleMaker()}
+            style={styleMaker(props)}
         >
             <Text
                 style={styles.textLight}
@@ -71,7 +46,7 @@ Button.propTypes = {
     onPress: PropTypes.func.isRequired,
     color: PropTypes.oneOf(['primary', 'success', 'danger']),
     size: PropTypes.oneOf(['micro', 'small', 'medium', 'large']),
-    shape: PropTypes.oneOf(['round'])
+    shape: PropTypes.oneOf(['soft', 'round'])
 }
 
 const styles = StyleSheet.create({

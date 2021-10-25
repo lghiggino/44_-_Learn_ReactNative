@@ -40,10 +40,10 @@ export default function Button(props) {
                 inlineStyle.maxWidth = "75%"
                 break
         }
-        switch(props.shape){
+        switch (props.shape) {
             case "round":
                 inlineStyle.borderRadius = 50
-            break
+                break
             default:
                 inlineStyle.borderRadius = 5
         }
@@ -66,12 +66,12 @@ export default function Button(props) {
 }
 
 
-Button.PropTypes = {
-    buttonText: PropTypes.string, 
-    onPress: PropTypes.func, 
-    color?: PropTypes.oneOf(['primary', 'success', 'danger']), 
-    size?: PropTypes.oneOf(['micro', 'small', 'medium', 'large']), 
-    shape?: PropTypes.oneOf(['round'])
+Button.propTypes = {
+    buttonText: PropTypes.string.isRequired,
+    onPress: PropTypes.func.isRequired,
+    color: PropTypes.oneOf(['primary', 'success', 'danger']),
+    size: PropTypes.oneOf(['micro', 'small', 'medium', 'large']),
+    shape: PropTypes.oneOf(['round'])
 }
 
 const styles = StyleSheet.create({

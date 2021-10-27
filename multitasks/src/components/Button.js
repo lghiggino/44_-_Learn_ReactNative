@@ -25,7 +25,6 @@ export default function Button(props) {
         return inlineStyle
     }
 
-
     return (
         <TouchableOpacity
             onPress={onPress}

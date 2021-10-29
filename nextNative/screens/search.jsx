@@ -1,22 +1,8 @@
 import React from "react";
 import { Link, useRouting } from "expo-next-react-navigation"
 import { StyleSheet, View, Text } from "react-native";
-
-function LinkToArtist({ slug, children }) {
-    return (
-        <Link
-            routeName="artist"
-            web={{ 
-               as: `/artist/${slug}`,
-            }}
-            params={{ 
-                slug, 
-            }}
-        >
-            {children}
-        </Link>
-    )
-}
+import LinkToArtist from '../src/Utils/CustomLinks'
+import { LinkToRouteName } from "../src/Utils/CustomLinks";
 
 export function SearchScreen() {
     return (
@@ -28,6 +14,13 @@ export function SearchScreen() {
             <LinkToArtist slug="apple">
                 <Text>Go to Artist Apple Page</Text>
             </LinkToArtist>
+            <LinkToRouteName 
+                routeName={"artist"}
+                slug="pineapple"
+                webpath={"artist"}
+            >
+                <Text>Go to Pineapple Page</Text>
+            </LinkToRouteName>
         </View>
     )
 }

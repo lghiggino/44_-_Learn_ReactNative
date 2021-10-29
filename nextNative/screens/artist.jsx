@@ -3,7 +3,7 @@ import { Link, useRouting, getParam } from "expo-next-react-navigation"
 import { StyleSheet, View, Text } from "react-native"
 
 
-export function ArtistScreen({params}) {
+export function ArtistScreen() {
     const { getParam } = useRouting()
     const slug = getParam("slug")
 

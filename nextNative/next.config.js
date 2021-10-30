@@ -10,7 +10,7 @@ const withTM = require("next-transpile-modules")([
 
 module.exports = withPlugins(
   [
-    withTM,
+    // withTM,
     withFonts,
     withImages,
     [withExpo, { projectRoot: __dirname }],

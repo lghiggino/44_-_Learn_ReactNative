@@ -58,6 +58,7 @@ export default function IndexScreen({ usersFromStaticProps }) {
 
             {response &&
                 <FlatList
+                    style={styles.flatList}
                     showsVerticalScrollIndicator={true}
                     data={response}
                     keyExtractor={item => item.id}
@@ -71,9 +72,15 @@ export default function IndexScreen({ usersFromStaticProps }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 10,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    flatList:{
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+
     },
     text: {
         fontSize: 16,

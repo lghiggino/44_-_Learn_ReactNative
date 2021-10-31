@@ -3,10 +3,10 @@ const withFonts = require('next-fonts')
 const withImages = require('next-images')
 const withPlugins = require('next-compose-plugins')
 
-const withTM = require("next-transpile-modules")([
-  'moti',
-  '@motify/core'
-])
+// const withTM = require("next-transpile-modules")([
+//   'moti',
+//   '@motify/core'
+// ])
 
 module.exports = withPlugins(
   [

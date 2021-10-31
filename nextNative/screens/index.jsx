@@ -1,10 +1,11 @@
 // @generated: @expo/next-adapter@2.1.52
 import React, { useState, useEffect } from 'react'
-import { Platform, View, Text, StyleSheet } from 'react-native'
+import { Platform, View, Text, StyleSheet, FlatList } from 'react-native'
 import { Link as SimpleLink, useRouting } from 'expo-next-react-navigation'
 import LinkToArtist from '../src/Utils/CustomLinks'
 import { LinkToRouteName } from '../src/Utils/CustomLinks'
 import axios from 'axios'
+import PersonCard from '../src/Components/PersonCard'
 
 
 
@@ -54,21 +55,14 @@ export default function IndexScreen({ usersFromStaticProps }) {
                     <Text>Go to Pineapple Page</Text>
                 </LinkToRouteName>
             </View>
+
             {response &&
-                <View
-                    style={styles.container}
-                >
-                    <Text>{response[0].name}</Text>
-                    <Text>{response[1].name}</Text>
-                    <Text>{response[2].name}</Text>
-                    <Text>{response[3].name}</Text>
-                    <Text>{response[4].name}</Text>
-                    <Text>{response[5].name}</Text>
-                    <Text>{response[6].name}</Text>
-                    <Text>{response[7].name}</Text>
-                    <Text>{response[8].name}</Text>
-                    <Text>{response[9].name}</Text>
-                </View>
+                <FlatList
+                    showsVerticalScrollIndicator={true}
+                    data={response}
+                    keyExtractor={item => item.id}
+                    renderItem={({ item }) => <PersonCard name={item.name} email={item.email} />}
+                />
             }
 
         </>

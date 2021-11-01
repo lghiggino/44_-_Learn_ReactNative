@@ -15,6 +15,12 @@ export default function Components({ navigation, route }) {
         <SafeAreaView style={styles.container}>
             <Text>Button Sizes</Text>
             <Button
+                buttonText={"size = micro"}
+                onPress={() => { console.log("") }}
+                color="danger"
+                size="micro"
+            />
+            <Button
                 buttonText={"size = small"}
                 onPress={() => { console.log("") }}
                 color="success"

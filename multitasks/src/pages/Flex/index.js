@@ -1,44 +1,86 @@
 import React from "react";
 import {
     StyleSheet,
-    SafeAreaView,
     View,
-    Text
-
+    Text,
+    Image,
+    Dimensions
 } from "react-native"
 //estilos e icones
 // import styles from './style'
 
 export default function Flex() {
     return (
-        <>
-            <View style={styles.container}>
-                <View style={styles.square} />
-                <View style={[styles.square, { alignSelf: "flex-end" }]} />
-                <View style={styles.square} />
-                <View style={[styles.square, { alignSelf: "flex-start" }]} />
-                <View style={styles.square} />
-                <View style={styles.line} />
+        <View style={styles.container}>
+            <View style={styles.card}>
+                <View style={styles.header}>
+                    <Text style={styles.nameText}>React Native School</Text>
+                    <Text style={styles.followText}>Follow</Text>
+                </View>
+                <Image
+                    style={styles.image}
+                    resizeMode="cover"
+                    source={{ uri: "https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg?cs=srgb&dl=pexels-michael-block-3225517.jpg&fm=jpg" }}
+                />
+                <View style={styles.footer}>
+                    <Text>
+                        <Text style={styles.nameText}>{`React Native School `}</Text>
+                        This has been a tutorial on how to build a layout with Flexbox. I
+                        hope you enjoyed it!
+                    </Text>
+                </View>
             </View>
-        </>
-    )
+        </View>
+    );
 }
 
 
+const screen = Dimensions.get("screen");
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#7CA1B4",
         flex: 1,
-        alignItems: "center", // ignore this - we'll come back to it
-        justifyContent: "space-between", // ignore this - we'll come back to it
+        backgroundColor: "#7CA1B4",
         flexDirection: "column",
-        flexWrap: "wrap"
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    card: {
+        backgroundColor: "#fff",
+        width: screen.width * 0.8
+    },
+    header: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+    },
+    footer:{
+        paddingHorizontal: 15,
+        paddingVertical: 10
+    },
+    nameText: {
+        fontWeight: "bold",
+        color: "#20232a",
+    },
+    followText: {
+        fontWeight: "bold",
+        color: "#0095f6",
+    },
+    image: {
+        height: screen.width * 0.8,
     },
     square: {
-        backgroundColor: "#7cb48f",
-        width: "31%",
+        backgroundColor: "transparent",
+        width: 100,
         height: 100,
-        margin: 4,
+        borderStyle: "solid",
+        borderColor: "white",
+        borderWidth: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center"
     },
     line: {
         backgroundColor: "#3da57f",

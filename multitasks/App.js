@@ -8,13 +8,14 @@ import Task from './src/pages/Task/';
 import NewTask from './src/pages/NewTask/';
 import Details from './src/pages/Details/';
 import Components from './src/pages/Components';
+import Flex from './src/pages/Flex';
 //Navigation
 const Stack = createStackNavigator()
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Components'>
+      <Stack.Navigator initialRouteName='Flex'>
         <Stack.Screen
           name='Login'
           component={Login}
@@ -48,6 +49,12 @@ export default function App() {
           name='Components'
           component={Components}
           options={{ headerTintColor: '#f92e6a' }}
+        />
+         <Stack.Screen
+          name='Flex'
+          component={Flex}
+          options={{ headerTintColor: '#f92e6a' }}
+          
         />
       </Stack.Navigator>
     </NavigationContainer>

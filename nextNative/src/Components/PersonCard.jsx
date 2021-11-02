@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet ,View, Text, TouchableOpacity } from "react-native"
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native"
 
 export default function PersonCard({ name, email }) {
 
@@ -13,7 +13,7 @@ export default function PersonCard({ name, email }) {
 
 
 const styles = StyleSheet.create({
-    card:{
+    card: {
         display: 'flex',
         flexGrow: 1,
         // flex: 1,
@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 10,
         marginVertical: 10,
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        maxWidth: "80%",
+        display: 'flex',
+        flexDirection: 'column',
+        flexBasis: '100 %',
+        flex: 1,
     }
 })

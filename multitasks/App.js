@@ -8,6 +8,7 @@ import Task from './src/pages/Task/';
 import NewTask from './src/pages/NewTask/';
 import Details from './src/pages/Details/';
 import Components from './src/pages/Components';
+import Card from './src/pages/Card';
 import Flex from './src/pages/Flex';
 //Navigation
 const Stack = createStackNavigator()
@@ -53,6 +54,12 @@ export default function App() {
          <Stack.Screen
           name='Flex'
           component={Flex}
+          options={{ headerTintColor: '#f92e6a' }}
+          
+        />
+        <Stack.Screen
+          name='Card'
+          component={Card}
           options={{ headerTintColor: '#f92e6a' }}
           
         />

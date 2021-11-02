@@ -57,7 +57,7 @@ export default function IndexScreen({ usersFromStaticProps }) {
             </View>
 
             {response &&
-            <View style={styles.container}>
+            <View style={styles.containerFlat}>
                  <FlatList
                     style={styles.flatList}
                     showsVerticalScrollIndicator={true}
@@ -78,10 +78,13 @@ const styles = StyleSheet.create({
         flex: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        width: '100 %'
+        flexDirection: 'column'
+    },
+    containerFlat:{
+        flex: 10,
+        justifyContent: 'flex-end',
+        alignItems: 'stretch',
+        flexDirection: 'row'
     },
     flatList: {
         display: 'flex',

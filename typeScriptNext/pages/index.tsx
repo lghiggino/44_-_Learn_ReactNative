@@ -1,22 +1,17 @@
-// @generated: @expo/next-adapter@2.1.52
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import IndexScreen from "../screens";
+import axios from "axios";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Welcome to Expo + Next.js 👋</Text>
-    </View>
-  );
+export default function IndexPage({ usersFromStaticProps }) {
+  return <IndexScreen usersFromStaticProps={usersFromStaticProps} />
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 16,
-  },
-});
+export async function getStaticProps() {
+  const res = await axios.get("https://jsonplaceholder.typicode.com/users")
+  const usersFromStaticProps = await res.data
+  return {
+    props: {
+      usersFromStaticProps
+    }
+  }
+}

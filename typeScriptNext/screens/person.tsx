@@ -10,8 +10,8 @@ export default function PersonScreen({ person }) {
     const name = getParam('name')
     const email = getParam('email')
 
-    console.log(id, name, email)
-
+    console.log("id, name, email",id, name, email)
+    console.log("person", person)
     const [response, setResponse] = useState(null)
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(true)
@@ -35,9 +35,9 @@ export default function PersonScreen({ person }) {
 
     return (
         <View>
-            <Text>{id}</Text>
-            <Text>Name: {name}</Text>
-            <Text>Email: {email}</Text>
+            <Text>{id || person.id}</Text>
+            <Text>Name: {name || person.name}</Text>
+            <Text>Email: {email || person.email}</Text>
         </View>
     )
 }

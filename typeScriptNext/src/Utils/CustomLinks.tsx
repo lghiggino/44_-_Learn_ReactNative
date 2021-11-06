@@ -17,15 +17,29 @@ export default function LinkToArtist({ slug, children }) {
     )
 }
 
-export function LinkToRouteName({routeName, webpath, slug, children}){
+export interface ILinkToRouteName {
+    routeName: string
+    webpath: string
+    slug?: string
+    id?: string
+    name?: string
+    email?: string
+    children: any
+    web?: any
+}
+
+export function LinkToRouteName({ routeName, webpath, slug, id, name, email, children }: ILinkToRouteName) {
     return (
         <Link
             routeName={routeName}
             web={{
-                as: `/${webpath}/${slug}`,
+                as: `${webpath}`,
             }}
             params={{
                 slug,
+                id,
+                name,
+                email,
             }}
         >
             {children}

@@ -47,15 +47,15 @@ export default function IndexScreen({ usersFromStaticProps }) {
             </View>
 
             {response &&
-            <View style={styles.containerFlat}>
-                 <FlatList
-                    style={styles.flatList}
-                    showsVerticalScrollIndicator={true}
-                    data={response}
-                    keyExtractor={item => `${item.id}`}
-                    renderItem={({ item }) => <PersonCard name={item.name} email={item.email} />}
-                />
-            </View>
+                <View style={styles.containerFlat}>
+                    <FlatList
+                        style={styles.flatList}
+                        showsVerticalScrollIndicator={true}
+                        data={response}
+                        keyExtractor={item => `${item.id}`}
+                        renderItem={({ item }) => <PersonCard id={item.id} name={item.name} email={item.email} />}
+                    />
+                </View>
             }
         </>
     );
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'column'
     },
-    containerFlat:{
+    containerFlat: {
         flex: 10,
         justifyContent: 'flex-end',
         alignItems: 'stretch',

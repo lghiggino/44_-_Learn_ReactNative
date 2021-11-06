@@ -5,8 +5,10 @@ export default function PersonCard({ name, email }) {
 
     return (
         <View style={styles.card}>
-            <Text>{name}</Text>
-            <Text>{email}</Text>
+            <TouchableOpacity>
+                <Text>{name}</Text>
+                <Text>{email}</Text>
+            </TouchableOpacity>
         </View>
     )
 }

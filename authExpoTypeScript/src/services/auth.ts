@@ -4,9 +4,11 @@ interface Response {
       name: string,
       email: string,
     };
+    credentials?: object
   }
   
-  export function signIn(): Promise<Response> {
+  export function signIn(credentials): Promise<Response> {
+    console.log(credentials)
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({

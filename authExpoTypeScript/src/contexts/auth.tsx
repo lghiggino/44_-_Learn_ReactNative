@@ -4,7 +4,7 @@ import * as auth from "../services/auth";
 interface AuthContextData {
   signed: boolean;
   user: object | null;
-  signIn(): Promise<void>;
+  signIn(credentials: object): Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -12,8 +12,9 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<object | null>(null);
 
-  async function signIn() {
-    const response = await auth.signIn();
+  async function signIn(credentials) {
+    console.log("credentials at context provider:", credentials)
+    const response = await auth.signIn(credentials);
     setUser(response.user);
   }
 

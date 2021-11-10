@@ -29,7 +29,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       if (storagedUser && storagedToken) {
         setUser(JSON.parse(storagedUser));
         setLoading(false)
-        api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
+        // api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
       }
     }
 
@@ -41,7 +41,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     const response = await auth.signIn(credentials);
     setUser(response.user);
 
-    api.defaults.headers.Authorization = `Bearer ${response.token}`;
+    // api.defaults.headers.Authorization = `Bearer ${response.token}`;
 
     await AsyncStorage.setItem('@RNAuth:user', JSON.stringify(response.user));
     await AsyncStorage.setItem('@RNAuth:token', response.token);

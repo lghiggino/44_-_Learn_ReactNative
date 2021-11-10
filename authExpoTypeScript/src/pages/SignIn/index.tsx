@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
 const SignIn: React.FC = () => {
   const { signed, signIn, user } = useContext(AuthContext);
   const [credentials, setCredentials] = useState({
-    username: "",
+    useremail: "",
     password: ""
   })
-  console.log(signed);
-  console.log(user);
+  console.log("signed?", signed);
+  console.log("user?", user);
 
   function handleSign() {
     signIn(credentials);
@@ -25,13 +25,13 @@ const SignIn: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text >username</Text>
+      <Text >email</Text>
       <TextInput
         style={{ paddingHorizontal: 10, paddingVertical: 20, borderColor: "green", borderWidth: 2, borderStyle: "solid", marginBottom: 20 }}
         placeholder="enter your email"
         keyboardType="email-address"
-        value={credentials.username}
-        onChangeText={(text) => setCredentials({ ...credentials, username: text })}
+        value={credentials.useremail}
+        onChangeText={(text) => setCredentials({ ...credentials, useremail: text })}
       />
       <Text >password</Text>
       <TextInput

@@ -19,9 +19,8 @@ export default function Dashboard({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Text>{user?.name}</Text>
-            <Text>{user?.email}</Text>
-            <Text>{user?.password}</Text>
+            <Text>email: {user?.email}</Text>
+            <Text>password: {user?.password}</Text>
             <Button title="Sign Out" onPress={handleSignOut} />
             <Button
                 title="Go to UserArea"

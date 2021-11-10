@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const Dashboard: React.FC = () => {
+export default function Dashboard({ navigation }) {
     const { user, signOut } = useContext(AuthContext);
 
     function handleSignOut() {
@@ -23,8 +23,10 @@ const Dashboard: React.FC = () => {
             <Text>{user?.email}</Text>
             <Text>{user?.password}</Text>
             <Button title="Sign Out" onPress={handleSignOut} />
+            <Button
+                title="Go to UserArea"
+                onPress={() => navigation.navigate('UserArea')}
+            />
         </View>
     );
 };
-
-export default Dashboard;

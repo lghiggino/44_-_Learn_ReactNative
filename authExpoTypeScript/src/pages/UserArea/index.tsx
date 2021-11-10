@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text } from "react-native";
+import AuthContext from "../../contexts/auth";
 
-const UserArea: React.FC = () => {
+export default function UserArea({ navigation }) {
+    const { user, signOut } = useContext(AuthContext);
+
     return (
         <View>
             <Text>Hello from UserArea</Text>
         </View>
     )
 };
-
-export default UserArea;

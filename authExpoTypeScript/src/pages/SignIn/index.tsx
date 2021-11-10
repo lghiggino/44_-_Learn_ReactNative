@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { View, Button, StyleSheet } from "react-native";
+import { View, Button, Text, StyleSheet } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AuthContext from "../../contexts/auth";
 
@@ -25,15 +25,17 @@ const SignIn: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      <Text >username</Text>
       <TextInput
-        style={{paddingHorizontal: 10, paddingVertical: 20, borderColor: "green", borderWidth: 2, borderStyle: "solid", marginBottom: 20}}
+        style={{ paddingHorizontal: 10, paddingVertical: 20, borderColor: "green", borderWidth: 2, borderStyle: "solid", marginBottom: 20 }}
         placeholder="enter your email"
         keyboardType="email-address"
         value={credentials.username}
         onChangeText={(text) => setCredentials({ ...credentials, username: text })}
       />
+      <Text >password</Text>
       <TextInput
-        style={{paddingHorizontal: 10, paddingVertical: 20, borderColor: "green", borderWidth: 2, borderStyle: "solid", marginBottom: 20}}
+        style={{ paddingHorizontal: 10, paddingVertical: 20, borderColor: "green", borderWidth: 2, borderStyle: "solid", marginBottom: 20 }}
         placeholder="enter your password"
         keyboardType="default"
         value={credentials.password}

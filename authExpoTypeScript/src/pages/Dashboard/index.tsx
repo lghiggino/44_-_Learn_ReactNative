@@ -19,9 +19,9 @@ const Dashboard: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <Text>{JSON.stringify(user, null, 2)} </Text>
             <Text>{user?.name}</Text>
             <Text>{user?.email}</Text>
+            <Text>{user?.password}</Text>
             <Button title="Sign Out" onPress={handleSignOut} />
         </View>
     );

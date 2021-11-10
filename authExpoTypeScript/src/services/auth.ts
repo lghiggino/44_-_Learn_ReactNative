@@ -3,6 +3,7 @@ interface Response {
     user: {
       name: string,
       email: string,
+      password: string,
     };
     credentials?: object
   }
@@ -15,6 +16,7 @@ interface Response {
           user: {
             name: credentials.username,
             email: "thiagomarinho@rockeseat.com.br",
+            password: credentials.password
           },
         });
       }, 2000);

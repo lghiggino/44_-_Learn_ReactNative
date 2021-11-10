@@ -7,15 +7,7 @@ import AuthRoutes from "../routes/auth.routes";
 import AppRoutes from "../routes/app.routes";
 
 const Routes: React.FC = () => {
-  const { signed, loading } = useContext(AuthContext);
-
-  if (loading) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" color="#666" />
-      </View>
-    );
-  }
+  const { signed } = useContext(AuthContext);
 
   return signed ? <AppRoutes /> : <AuthRoutes />;
 };

@@ -17,13 +17,13 @@ export default function Components({ navigation, route }) {
             <Button
                 buttonText={"size = micro"}
                 onPress={() => { console.log("") }}
-                color="danger"
+                color="primary"
                 size="micro"
             />
             <Button
                 buttonText={"size = small"}
                 onPress={() => { console.log("") }}
-                color="success"
+                color="secondary"
                 size="small"
             />
             <Button
@@ -41,7 +41,7 @@ export default function Components({ navigation, route }) {
             <Button
                 buttonText={"without size prop"}
                 onPress={() => { console.log("hello") }}
-                color="danger"
+                color="warning"
             />
 
             <Text>Button Shapes</Text>
@@ -55,8 +55,9 @@ export default function Components({ navigation, route }) {
             <Button
                 buttonText={"without shape prop"}
                 onPress={() => { console.log("hello") }}
-                color="danger"
-                size="medium"
+                color="warning"
+                size="
+                medium"
             />
         </SafeAreaView>
     )

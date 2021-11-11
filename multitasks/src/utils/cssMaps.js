@@ -1,10 +1,10 @@
 const colorMap = {
     primary: '#f92e6a',
-    success: '#4caf50',
-    info: '#00acc1',
-    danger: '#f44336',
-    warning: '#ff9800',
-    rose: '#e91e63',
+    secondary: '#2ef9bd',
+    success: '#2ef957',
+    info: '#2ed0f9',
+    danger: '#d40643',
+    warning: '#f9572e',
     black: '#333',
     white: '#fff'
 }
@@ -15,8 +15,6 @@ const widthMap = {
     medium: "50%",
     large: "75%"
 }
-
-
 
 const borderRadiusMap = {
     soft: 10,

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
 import { StyleSheet, Text, FlatList, SafeAreaView, ScrollView, View, StatusBar, Button } from "react-native";
 import AuthContext from "../../contexts/auth";
@@ -16,17 +17,22 @@ const DATA = [
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
         title: 'Third Item',
     },
+    {
+        id: 'bd7acdfb-c1b1-46c2-aed5-3ad53abb28ba',
+        title: 'Fourth Item',
+    }
 ];
 
-const Item = ({ title }) => (
+const Item = ({ title, body }) => (
     <View style={styles.item}>
         <Text style={styles.title}>{title}</Text>
+        <Text style={styles.body}>{body}</Text>
     </View>
 );
 
 export default function Dashboard({ navigation }) {
     const { user, signOut } = useContext(AuthContext);
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState(null)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(
         {
@@ -39,30 +45,29 @@ export default function Dashboard({ navigation }) {
         signOut();
     }
 
+    async function getPosts() {
+        try {
+            setLoading(true)
+            const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
+            setPosts(response.data)
+        } catch (error) {
+            setError({ state: true, message: `Error getting Posts` })
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        getPosts()
+        console.log("posts?", posts)
+    }, [])
+
     const renderItem = ({ item }) => (
-        <Item title={item.title} />
+        <Item title={item.title} body={item.body} />
     );
 
     return (
-        // <ScrollView>
-        //     <View >
-        //         <Text>email: {user?.email}</Text>
-        //         <Text>password: {user?.password}</Text>
-        //     </View>
-        //     <View >
-        //         <Text>Meiuca</Text>
-        //     </View>
-        //     <View>
-        //         <Button title="Sign Out" onPress={handleSignOut} />
-        //         <Button
-        //             title="Go to UserArea"
-        //             onPress={() => navigation.navigate('UserArea')}
-        //         />
-        //     </View>
-        // </ScrollView>
         <SafeAreaView style={styles.container}>
-            
-            <ScrollView style={styles.scrollView}>
             <View>
                 <Button title="Sign Out" onPress={handleSignOut} />
                 <Button
@@ -70,26 +75,22 @@ export default function Dashboard({ navigation }) {
                     onPress={() => navigation.navigate('UserArea')}
                 />
             </View>
-                <Text style={styles.text}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                </Text>
-            </ScrollView>
-            <FlatList
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-            />
+            {loading &&
+                <View>
+                    <Text>...loading...</Text>
+                </View>
+            }
+            {posts &&
+                <FlatList
+                    data={posts}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.id}
+                />
+            }
+
         </SafeAreaView>
     );
 };
-
-
 
 const styles = StyleSheet.create({
     container: {
@@ -110,7 +111,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     title: {
-        fontSize: 32,
+        fontSize: 16,
     },
+    body:{
+        fontSize: 12,
+    }
 });
 

@@ -37,7 +37,7 @@ export default function Dashboard({ navigation }) {
     }, [])
 
     const renderItem = ({ item }) => (
-        <Post title={item.title} body={item.body} />
+        <Post title={item.title} body={item.body} id={item.id} navigation={navigation} />
     );
 
     return (

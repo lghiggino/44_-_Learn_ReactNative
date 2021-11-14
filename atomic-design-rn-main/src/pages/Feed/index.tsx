@@ -19,7 +19,7 @@ import { profiles } from '../../utils/profiles';
 import { posts } from '../../utils/posts';
 
 import { styles } from './styles';
-import Posts from '../../components/template/Posts';
+import PostsList from '../../components/template/Posts';
 import Stories from '../../components/template/Stories';
 import Header from '../../components/template/Header';
 
@@ -30,7 +30,7 @@ export function Feed() {
 
       <Stories renderData={profiles} />
 
-      <Posts renderData={posts}/>
+      <PostsList renderData={posts}/>
 
     </View>
   );

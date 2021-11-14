@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
   },
   postFooter: {
     width,
-    paddingVertical: 15,
+    paddingVertical: 5,
     paddingHorizontal: 10
   },
   postUsername: {

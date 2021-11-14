@@ -19,9 +19,9 @@ import { profiles } from '../../utils/profiles';
 import { posts } from '../../utils/posts';
 
 import { styles } from './styles';
-import Posts from '../../components/templates/Posts';
-import Stories from '../../components/templates/Stories';
-import Header from '../../components/templates/Header';
+import Posts from '../../components/template/Posts';
+import Stories from '../../components/template/Stories';
+import Header from '../../components/template/Header';
 
 export function Feed() {
   return (

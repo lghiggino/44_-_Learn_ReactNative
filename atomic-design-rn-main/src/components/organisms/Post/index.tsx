@@ -12,13 +12,13 @@ export interface IPost {
     likes: string,
     cover: ImageProps,
     description: string,
-    lastLiked: IProfile2,
+    lastLiked: IProfile,
     postProfilePicture: any,
     postUsername: string,
     postLocation: string
 }
 
-export interface IProfile2 {
+export interface IProfile {
     id?: string,
     name?: string,
     avatar?: any

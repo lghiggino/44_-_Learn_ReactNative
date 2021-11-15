@@ -2,23 +2,26 @@ import React from 'react';
 import { View, Image, Text, ImageProps } from 'react-native';
 import { CommentIcon, FavoriteIcon, MessengerIcon, SaveIcon } from '../../../global/styles/icons';
 
-import { styles } from '../../../pages/Feed/styles';
+import PostHeader from '../../molecules/PostHeader';
 
+import { styles } from '../../../pages/Feed/styles';
+import PostFooter from '../../molecules/PostFooter';
+import PostImage from '../../molecules/PostImage';
 export interface IPost {
     id: string,
     likes: string,
     cover: ImageProps,
     description: string,
-    lastLiked: IProfile,
+    lastLiked: IProfile2,
     postProfilePicture: any,
     postUsername: string,
     postLocation: string
 }
 
-export interface IProfile {
-    id: string,
-    name: string,
-    avatar: ImageProps
+export interface IProfile2 {
+    id?: string,
+    name?: string,
+    avatar?: any
 }
 
 type Props = {
@@ -28,33 +31,11 @@ type Props = {
 const Post: React.FC<Props> = ({ data }) => {
     return (
         <View style={styles.post}>
-            <View style={styles.postHeader}>
-                <Image source={data.postProfilePicture} style={styles.postAvatar} />
-                <View>
-                    <Text style={styles.postUsername}>{data.postUsername}</Text>
-                    <Text style={styles.postLocation}>{data.postLocation}</Text>
-                </View>
-            </View>
+            <PostHeader postProfilePicture={data.postProfilePicture} postUsername={data.postUsername} postLocation={data.postLocation} />
 
-            <Image source={data.cover} style={styles.cover} />
+            <PostImage cover={data.cover} />
 
-            <View style={styles.postFooter}>
-                <View style={styles.postOptions}>
-                    <View style={styles.postOptionsSide}>
-                        <FavoriteIcon style={styles.postOptionsIcon} />
-                        <CommentIcon style={styles.postOptionsIcon} />
-                        <MessengerIcon style={styles.postOptionsIcon} />
-                    </View>
-
-                    <SaveIcon />
-                </View>
-
-                <View style={styles.postAbout}>
-                    <Image source={data.lastLiked.avatar} style={styles.lastLiked} />
-                    <Text style={styles.likes}>{data.likes}</Text>
-                </View>
-                <Text style={styles.description}>{data.description}</Text>
-            </View>
+            <PostFooter lastLiked={data.lastLiked.avatar} likes={data.likes} description={data.description} />
         </View>
     );
 }

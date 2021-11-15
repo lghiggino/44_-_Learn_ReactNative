@@ -6,7 +6,7 @@ import { IProfile } from '../../organisms/Post';
 
 import { styles } from '../../../pages/Feed/styles';
 import PostAbout from './PostAbout';
-import PostDescription from './PostDescription';
+import PostDescription from '../PostDescription';
 
 type PostFooterProps = {
     lastLiked: IProfile,

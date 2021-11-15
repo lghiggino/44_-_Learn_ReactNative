@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
-import { CommentIcon, FavoriteIcon, MessengerIcon, SaveIcon } from '../../../global/styles/icons';
-import { IProfile2 } from '../../organisms/Post';
+import PostOptions from './PostOptions';
+
+import { IProfile } from '../../organisms/Post';
 
 import { styles } from '../../../pages/Feed/styles';
+import PostAbout from './PostAbout';
+import PostDescription from './PostDescription';
 
 type PostFooterProps = {
-    lastLiked: IProfile2,
+    lastLiked: IProfile,
     likes: string,
     description: string
 }
@@ -14,21 +17,11 @@ type PostFooterProps = {
 const PostFooter: React.FC<PostFooterProps> = ({ lastLiked, likes, description }) => {
     return (
         <View style={styles.postFooter}>
-            <View style={styles.postOptions}>
-                <View style={styles.postOptionsSide}>
-                    <FavoriteIcon style={styles.postOptionsIcon} />
-                    <CommentIcon style={styles.postOptionsIcon} />
-                    <MessengerIcon style={styles.postOptionsIcon} />
-                </View>
+            <PostOptions />
 
-                <SaveIcon />
-            </View>
+            <PostAbout avatar={lastLiked.avatar} likes={likes} />
 
-            <View style={styles.postAbout}>
-                <Image source={lastLiked.avatar} style={styles.lastLiked} />
-                <Text style={styles.likes}>{likes}</Text>
-            </View>
-            <Text style={styles.description}>{description}</Text>
+            <PostDescription description={description} />
         </View>
     );
 }

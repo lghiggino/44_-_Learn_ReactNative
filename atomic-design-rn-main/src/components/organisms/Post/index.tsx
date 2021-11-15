@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Image, Text, ImageProps } from 'react-native';
-import { CommentIcon, FavoriteIcon, MessengerIcon, SaveIcon } from '../../../global/styles/icons';
+import { View, ImageProps } from 'react-native';
 
 import PostHeader from '../../molecules/PostHeader';
 
@@ -33,7 +32,7 @@ const Post: React.FC<Props> = ({ data }) => {
         <View style={styles.post}>
             <PostHeader postProfilePicture={data.postProfilePicture} postUsername={data.postUsername} postLocation={data.postLocation} />
 
-            <PostImage cover={data.cover} />
+            <PostImage source={data.cover} />
 
             <PostFooter lastLiked={data.lastLiked.avatar} likes={data.likes} description={data.description} />
         </View>

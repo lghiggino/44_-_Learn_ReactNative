@@ -2,14 +2,12 @@ import React from 'react';
 import { Image, ImageProps } from 'react-native';
 
 import { styles } from '../../../pages/Feed/styles';
+import CoverImage from '../../atoms/CoverImage';
 
-type PostImageProps = {
-    cover: ImageProps
-}
 
-const PostImage: React.FC<PostImageProps> = ({cover}) => {
+const PostImage: React.FC<ImageProps> = ({ ...rest }) => {
     return (
-        <Image source={cover} style={styles.cover} />
+        <CoverImage {...rest} />
     );
 }
 

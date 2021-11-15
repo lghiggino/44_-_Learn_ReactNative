@@ -9,7 +9,7 @@ import PostAbout from './PostAbout';
 import PostDescription from '../PostDescription';
 
 type PostFooterProps = {
-    lastLiked: IProfile,
+    lastLiked: any,
     likes: string,
     description: string
 }
@@ -19,7 +19,7 @@ const PostFooter: React.FC<PostFooterProps> = ({ lastLiked, likes, description }
         <View style={styles.postFooter}>
             <PostOptions />
 
-            <PostAbout avatar={lastLiked.avatar} likes={likes} />
+            <PostAbout avatar={lastLiked} likes={likes} />
 
             <PostDescription description={description} />
         </View>

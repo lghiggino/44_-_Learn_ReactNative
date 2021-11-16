@@ -2,10 +2,10 @@ import React from 'react';
 import { View, ImageProps } from 'react-native';
 
 import PostHeader from '../../molecules/PostHeader';
-
-import { styles } from '../../../pages/Feed/styles';
 import PostFooter from '../../molecules/PostFooter';
 import PostImage from '../../molecules/PostImage';
+
+import { styles } from '../../../pages/Feed/styles';
 export interface IPost {
     id: string,
     likes: string,

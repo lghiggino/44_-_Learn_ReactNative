@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Image, Text, ImageProps } from 'react-native';
 
 import { styles } from '../../../pages/Feed/styles';
+import PostAvatar from '../../atoms/PostAvatar';
+import TextPostLocation from '../../atoms/TextPostLocation';
+import TextUsername from '../../atoms/TextUsername';
 
 type PostHeaderProps = {
     postProfilePicture: ImageProps
@@ -12,10 +15,10 @@ type PostHeaderProps = {
 const PostHeader: React.FC<PostHeaderProps> = ({ postProfilePicture, postUsername, postLocation }) => {
     return (
         <View style={styles.postHeader}>
-            <Image source={postProfilePicture} style={styles.postAvatar} />
+            <PostAvatar source={postProfilePicture} />
             <View>
-                <Text style={styles.postUsername}>{postUsername}</Text>
-                <Text style={styles.postLocation}>{postLocation}</Text>
+                <TextUsername textValue={postUsername}/>
+                <TextPostLocation textValue={postLocation} />
             </View>
         </View>
     );

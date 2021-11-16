@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Image, Text, ImageProps } from 'react-native';
 
 import { styles } from '../../../../pages/Feed/styles';
+import PostLikedAvatar from '../../../atoms/PostLikedAvatar';
+import TextLiked from '../../../atoms/TextLiked';
 
 type PostAboutProps = {
     avatar: ImageProps,
@@ -11,8 +13,8 @@ type PostAboutProps = {
 const PostAbout: React.FC<PostAboutProps> = ({ avatar, likes }) => {
     return (
         <View style={styles.postAbout}>
-            <Image source={avatar} style={styles.lastLiked} />
-            <Text style={styles.likes}>{likes}</Text>
+            <PostLikedAvatar source={avatar} />
+            <TextLiked textValue={likes} />
         </View>
     );
 }

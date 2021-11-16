@@ -1,8 +1,6 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View } from 'react-native';
 import PostOptions from './PostOptions';
-
-import { IProfile } from '../../organisms/Post';
 
 import { styles } from '../../../pages/Feed/styles';
 import PostAbout from './PostAbout';

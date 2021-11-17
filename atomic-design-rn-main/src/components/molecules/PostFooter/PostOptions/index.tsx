@@ -14,7 +14,7 @@ const PostOptions: React.FC = () => {
                 <ButtonIcons icon={MessengerIcon} />
             </View>
 
-            <SaveIcon />
+            <ButtonIcons icon={SaveIcon} />
         </View>
     );
 }

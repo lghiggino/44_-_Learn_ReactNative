@@ -1,7 +1,5 @@
 import React from 'react';
-import { Image, ImageProps } from 'react-native';
-
-import { styles } from '../../../pages/Feed/styles';
+import { ImageProps } from 'react-native';
 import CoverImage from '../../atoms/CoverImage';
 
 

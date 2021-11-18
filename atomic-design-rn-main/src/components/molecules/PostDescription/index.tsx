@@ -1,7 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
-
-import { styles } from '../../../pages/Feed/styles';
 import TextDescription from '../../atoms/TextDescription';
 
 type PostDescriptionProps = {

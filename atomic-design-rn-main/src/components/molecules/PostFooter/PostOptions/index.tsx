@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { CommentIcon, FavoriteIcon, MessengerIcon, SaveIcon } from '../../../../global/styles/icons';
 import ButtonIcons from '../../../atoms/ButtonIcons';
 
-import { styles } from '../../../../pages/Feed/styles';
+import { styles } from './styles';
 
 const PostOptions: React.FC = () => {
     return (

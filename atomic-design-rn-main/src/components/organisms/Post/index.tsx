@@ -5,7 +5,7 @@ import PostHeader from '../../molecules/PostHeader';
 import PostFooter from '../../molecules/PostFooter';
 import PostImage from '../../molecules/PostImage';
 
-import { styles } from '../../../pages/Feed/styles';
+import { styles } from './styles';
 export interface IPost {
     id: string,
     likes: string,

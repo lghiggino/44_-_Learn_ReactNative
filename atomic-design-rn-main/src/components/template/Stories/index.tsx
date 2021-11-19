@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, Image, Text } from 'react-native';
 
-import { styles } from '../../../pages/Feed/styles';
+import { styles } from './styles';
 
 export interface IStories {
     renderData: any[]

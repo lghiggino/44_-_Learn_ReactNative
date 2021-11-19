@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import { styles } from '../../../pages/Feed/styles';
+import { styles } from './styles';
 import Post, { IPost } from '../../organisms/Post';
 export interface IPosts {
     renderData: IPost[]

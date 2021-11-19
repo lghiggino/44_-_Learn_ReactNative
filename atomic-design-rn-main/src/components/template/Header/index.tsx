@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { CameraIcon, IgtvIcon, LogoIcon, MessengerIcon } from '../../../global/styles/icons';
 
-import { styles } from '../../../pages/Feed/styles';
+import { styles } from './styles';
 
 const Header: React.FC = () => {
     return (

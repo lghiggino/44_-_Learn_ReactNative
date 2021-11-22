@@ -5,7 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { DripsyProvider } from 'dripsy'
 
 import { theme } from 'app/theme'
-import { HelloWorld } from 'app/hello-world'
+import { HelloWorld } from 'app/PageScreens/hello-world'
 
 enableScreens(true)
 

@@ -33,23 +33,30 @@ const data = [
     },
 ]
 
-const Item = ({ title }) => (
+const Item = ({ title, author }) => (
     <View >
         <Text >{title}</Text>
+        <Text style={{ fontSize: 12 }}>{author}</Text>
     </View>
 );
 
+type IArticles = {
+    id: number,
+    title: string,
+    author: string
+}
+
 const PageScreens: React.FC = () => {
     const renderItem = ({ item }) => (
-        <Item title={item.title} />
+        <Item title={item.title} author={item.author} />
     );
 
     return (
         <View>
             <FlatList
-                data={data}
+                data={data as IArticles[]}
                 renderItem={renderItem}
-                keyExtractor={item => item.id}
+                keyExtractor={item => `${item.id}`}
             />
         </View>
     )

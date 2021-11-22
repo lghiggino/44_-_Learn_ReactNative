@@ -6,6 +6,7 @@ import { DripsyProvider } from 'dripsy'
 
 import { theme } from 'app/theme'
 import { HelloWorld } from 'app/PageScreens/hello-world'
+import postView from 'app/PageScreens/postView'
 
 enableScreens(true)
 

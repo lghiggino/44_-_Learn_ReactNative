@@ -18,24 +18,45 @@ export default function LinkToArtist({ slug, children }) {
 }
 
 type ILinkToRouteName = {
-    routeName: string, 
-    webpath: string, 
-    slug: string, 
-    children: any
+    routeName: string,
+    webpath?: string,
+    slug?: string,
+    children: any,
+    style?: any
 }
 
-export function LinkToRouteName({routeName, webpath, slug, children}){
-    return (
-        <Link
-            routeName={routeName}
-            web={{
-                as: `/${webpath}/${slug}`,
-            }}
-            params={{
-                slug,
-            }}
-        >
-            {children}
-        </Link>
-    )
+export function LinkToRouteName({ routeName, webpath, slug, children, style }: ILinkToRouteName) {
+    if (!slug) {
+        return (
+            <Link
+                routeName={routeName}
+                web={{
+                    as: `/${webpath}/`,
+                }}
+                params={{
+                    slug,
+                }}
+                {...style}
+            >
+                {children}
+            </Link>
+        )
+    } else {
+        return (
+            <Link
+                routeName={routeName}
+                web={{
+                    as: `/${webpath}/${slug}`,
+                }}
+                params={{
+                    slug,
+                }}
+                {...style}
+            >
+                {children}
+            </Link>
+        )
+    }
+
 }
+

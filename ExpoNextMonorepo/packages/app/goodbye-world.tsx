@@ -7,7 +7,7 @@ export function GoodbyeWorld() {
     <View style={styles.container}>
       <Text style={styles.text}>Goodbye, World!</Text>
       <View style={styles.button}>
-        <LinkToRouteName routeName="index" webpath="goodbye" >
+        <LinkToRouteName routeName="hello" webpath="hello" >
           <Text style={styles.buttonText}>Back to Index</Text>
         </LinkToRouteName>
       </View>

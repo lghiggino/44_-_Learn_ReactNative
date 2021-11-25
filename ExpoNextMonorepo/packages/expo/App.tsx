@@ -38,7 +38,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Navigator>
-        <Screen name="index" component={HelloWorld} />
+        <Screen name="hello" component={HelloWorld} />
         <Screen name="goodbye" component={GoodbyeWorld} />
       </Navigator>
     </NavigationContainer>

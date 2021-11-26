@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    color: '#68100d'
+    color: 'red'
   },
   buttonText:{
     color: 'white'
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 12,
     paddingVertical: 6,
-    backgroundColor: '#660a32',
+    backgroundColor: 'red',
     borderRadius: 6,
     marginVertical: 5
   }

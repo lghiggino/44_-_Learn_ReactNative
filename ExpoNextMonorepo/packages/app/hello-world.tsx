@@ -47,6 +47,13 @@ export function HelloWorld({ }) {
       }
       {artists &&
         <View>
+          {artists.map(item => (
+            <Pressable style={styles.button}>
+              <LinkToRouteName routeName="artists" webpath="artists" slug={item.id}>
+                <Text>Ir para {item.name}</Text>
+              </LinkToRouteName>
+            </Pressable>
+          ))}
           <Text>{JSON.stringify(artists, null, 2)}</Text>
         </View>
       }
@@ -74,6 +81,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     borderRadius: 6,
     marginVertical: 5,
-    width: width/8
+    width: width / 8
   }
 })

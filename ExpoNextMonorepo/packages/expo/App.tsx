@@ -31,6 +31,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
 import { HelloWorld } from 'app/hello-world'
 import { GoodbyeWorld } from 'app/goodbye-world'
+import { Artists } from 'app/artists'
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
@@ -40,6 +41,7 @@ export default function App() {
       <Navigator>
         <Screen name="hello" component={HelloWorld} />
         <Screen name="goodbye" component={GoodbyeWorld} />
+        <Screen name="artists" component={Artists} />
       </Navigator>
     </NavigationContainer>
   )

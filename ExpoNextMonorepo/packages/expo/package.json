@@ -31,6 +31,7 @@
     "build:production:android": "STAGE=production eas build --profile production --platform android"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "@react-navigation/native-stack": "^6.2.5",
     "@react-navigation/native": "^6.0.6",
     "expo-next-react-navigation": "^2.0.2",

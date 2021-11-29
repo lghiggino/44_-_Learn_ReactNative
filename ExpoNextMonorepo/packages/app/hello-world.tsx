@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Dimensions, ScrollView, View, Text, StyleSheet, Pressable } from 'react-native'
+import { Platform, Dimensions, ScrollView, View, Text, StyleSheet, Pressable } from 'react-native'
 import { LinkToRouteName } from './utils/CustomLinks'
-
+import { Link, useRouting } from 'expo-next-react-navigation'
 
 
 
 export function HelloWorld({ }) {
+  const { navigate } = useRouting()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [artists, setArtists] = useState(null)
@@ -48,10 +49,26 @@ export function HelloWorld({ }) {
       {artists &&
         <View>
           {artists.map(item => (
-            <Pressable style={styles.button}>
-              <LinkToRouteName routeName="artists" webpath="artists" slug={item.id}>
+            <Pressable style={styles.button} onPress={() => {
+              navigate({
+               routeName: 'artists',
+               params: {id: item.id},
+               web: { as: `/artists/${item.id}` }
+              })
+            }}>
+              {/* <Link
+                routeName="artists" web={{
+                  path: `artists/${item.id}`
+                }}
+                params={{
+                  item
+                }}
+              > */}
                 <Text>Ir para {item.name}</Text>
-              </LinkToRouteName>
+              {/* </Link> */}
+              {/* <LinkToRouteName routeName="artists" webpath="artists" slug={item.id}>
+                <Text>Ir para {item.name}</Text>
+              </LinkToRouteName> */}
             </Pressable>
           ))}
           <Text>{JSON.stringify(artists, null, 2)}</Text>
@@ -81,6 +98,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     borderRadius: 6,
     marginVertical: 5,
-    width: width / 8
+    width: Platform.OS === 'web' ? width / 8 : 200
   }
 })

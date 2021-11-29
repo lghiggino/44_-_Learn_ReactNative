@@ -5,9 +5,9 @@ import { View, Text, Image, ImageProps, Pressable, PressableProps, StyleSheet, G
 
 type ICard = {
     title: string,
-    source: ImageProps,
+    source: any,
     subtitle: string,
-    onPress: (event: GestureResponderEvent) => void
+    onPress: any
     callToAction: string
 }
 const Card: React.FC<ICard> = ({ title, source, subtitle, onPress, callToAction }) => {

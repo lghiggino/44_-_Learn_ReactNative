@@ -49,13 +49,16 @@ export function HelloWorld({ }) {
       {artists &&
         <View>
           {artists.map(item => (
-            <Pressable style={styles.button} onPress={() => {
-              navigate({
-               routeName: 'artists',
-               params: {id: item.id},
-               web: { as: `/artists/${item.id}` }
-              })
-            }}>
+            <Pressable
+              key={item.id}
+              style={styles.button}
+              onPress={() => {
+                navigate({
+                  routeName: 'artists',
+                  params: { id: item.id },
+                  web: { as: `/artists/${item.id}` }
+                })
+              }}>
               {/* <Link
                 routeName="artists" web={{
                   path: `artists/${item.id}`
@@ -64,7 +67,7 @@ export function HelloWorld({ }) {
                   item
                 }}
               > */}
-                <Text>Ir para {item.name}</Text>
+              <Text>Ir para {item.name}</Text>
               {/* </Link> */}
               {/* <LinkToRouteName routeName="artists" webpath="artists" slug={item.id}>
                 <Text>Ir para {item.name}</Text>

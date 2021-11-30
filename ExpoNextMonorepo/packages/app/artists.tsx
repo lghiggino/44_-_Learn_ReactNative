@@ -4,11 +4,36 @@ import Card from '../expo/components/templates/Card'
 import { Link, useRouting } from "expo-next-react-navigation"
 
 
+type IItem = {
+  "address": {
+    "city": string,
+    "geo": {
+      "lat": string,
+      "lng": string,
+    },
+    "street": string,
+    "suite": string,
+    "zipcode": string,
+  },
+  "company": {
+    "bs": string,
+    "catchPhrase": string,
+    "name": string,
+  },
+  "email": string,
+  "id": number,
+  "name": string,
+  "phone":string,
+  "username": string,
+  "website": string
+
+}
+
 
 export function Artists({ route }) {
   const { getParam } = useRouting()
-  const id = getParam('id')
-  console.log("id is: ",id)
+  const item: IItem = getParam('item')
+  console.log("item is", item)
 
 
   return (
@@ -20,6 +45,8 @@ export function Artists({ route }) {
             <Text style={styles.buttonText}>Voltar para Hello</Text>
           </LinkToRouteName>
         </View>
+        <Text>{item.name}</Text>
+        <Text>{item.email}</Text>
       </View>
 
       {/* <Card key={item.id} title={item.name} source={'https://picsum.photos/200'} subtitle={item.email} onPress={alert(item.city)} callToAction='say Hello' /> */}

@@ -55,7 +55,7 @@ export function HelloWorld({ }) {
               onPress={() => {
                 navigate({
                   routeName: 'artists',
-                  params: { id: item.id },
+                  params: { item: item },
                   web: { as: `/artists/${item.id}` }
                 })
               }}>

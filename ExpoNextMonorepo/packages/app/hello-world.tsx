@@ -49,32 +49,31 @@ export function HelloWorld({ }) {
       {artists &&
         <View>
           {artists.map(item => (
-            <Pressable
-              key={item.id}
-              style={styles.button}
-              onPress={() => {
-                navigate({
-                  routeName: 'artists',
-                  params: { item: item },
-                  web: { as: `/artists/${item.id}` }
-                })
-              }}>
-              {/* <Link
-                routeName="artists" web={{
-                  path: `artists/${item.id}`
-                }}
-                params={{
-                  item
-                }}
-              > */}
+            // <Pressable
+            //   key={item.id}
+            //   style={styles.button}
+            //   onPress={() => {
+            //     navigate({
+            //       routeName: 'artists',
+            //       params: { item: item },
+            //       web: { as: `/artists/${item.id}` }
+            //     })
+            //   }}>
+            <Link
+              style={{ backgroundColor: 'green', marginBottom: 10 }}
+              routeName="artists" 
+              web={{
+                path: `artists/${item.id}`
+              }}
+              params={{
+                item: item
+              }}
+            >
               <Text>Ir para {item.name}</Text>
-              {/* </Link> */}
-              {/* <LinkToRouteName routeName="artists" webpath="artists" slug={item.id}>
-                <Text>Ir para {item.name}</Text>
-              </LinkToRouteName> */}
-            </Pressable>
+            </Link>
+            // </Pressable>
           ))}
-          <Text>{JSON.stringify(artists, null, 2)}</Text>
+          {/* <Text>{JSON.stringify(artists, null, 2)}</Text> */}
         </View>
       }
       {error &&

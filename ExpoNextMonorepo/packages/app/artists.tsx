@@ -68,6 +68,7 @@ export function Artists() {
           <>
             <Text>{item.name}</Text>
             <Text>{item.email}</Text>
+            <Text>{JSON.stringify(item)}</Text>
           </>
         }
 

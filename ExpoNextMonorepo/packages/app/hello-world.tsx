@@ -49,16 +49,6 @@ export function HelloWorld({ }) {
       {artists &&
         <View>
           {artists.map(item => (
-            // <Pressable
-            //   key={item.id}
-            //   style={styles.button}
-            //   onPress={() => {
-            //     navigate({
-            //       routeName: 'artists',
-            //       params: { item: item },
-            //       web: { as: `/artists/${item.id}` }
-            //     })
-            //   }}>
             <Link
               key={item.id}
               style={styles.button}
@@ -70,9 +60,7 @@ export function HelloWorld({ }) {
             >
               <Text>Ir para {item.name}</Text>
             </Link>
-            // </Pressable>
           ))}
-          {/* <Text>{JSON.stringify(artists, null, 2)}</Text> */}
         </View>
       }
       {error &&

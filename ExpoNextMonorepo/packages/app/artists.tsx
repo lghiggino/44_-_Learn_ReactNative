@@ -34,7 +34,7 @@ export function Artists() {
   const { getParam } = useRouting()
   const item: string = getParam('item')
   console.log("item is", item, "banana")
-  console.log(typeof(item))
+  console.log(typeof (item))
 
   const parsedItem: IItem = JSON.parse(item)
   console.log(parsedItem)
@@ -43,39 +43,38 @@ export function Artists() {
   return (
     <>
       <View style={styles.container}>
-        <Text>I'm artists page, baybay</Text>
-        <View style={styles.button}>
-          <LinkToRouteName routeName="hello" webpath="hello" >
-            <Text style={styles.buttonText}>Voltar para Hello</Text>
-          </LinkToRouteName>
-        </View>
-        <View style={styles.card}>
-          <View style={styles.cardBackgroundImage}></View>
-          <View style={{ flexDirection: 'row' }}>
-            <View style={styles.cardAvatarImage}></View>
-            <View style={styles.cardAvatarLettering}></View>
-          </View>
-          <View style={styles.cardButtonContainer}>
-            <View style={styles.cardButton}><Text style={styles.cardButtonText}>Follow</Text></View>
-            <View style={styles.cardButton}><Text style={styles.cardButtonText}>Message</Text></View>
-          </View>
-          <View style={styles.cardFooter}>
-            <View style={styles.cardFooterFollowersText}></View>
-            <View style={styles.cardFooterFollowersAvatars}>
-              <View style={styles.cardFooterFollowersAvatarsImages}></View>
-              <View style={styles.cardFooterFollowersAvatarsImagesExtra}></View>
-            </View>
-          </View>
-
-        </View>
         {item &&
           <>
-            <Text>{parsedItem.name}</Text>
-            <Text>{parsedItem.email}</Text>
+            <View style={styles.card}>
+              <View style={styles.cardBackgroundImage}></View>
+              <View style={{ flexDirection: 'row' }}>
+                <View style={styles.cardAvatarImage}></View>
+                <View style={styles.cardAvatarLettering}>
+                  <Text style={{ color: 'white' }}>{parsedItem.name}</Text>
+                  <Text style={{ color: 'white' }}>{parsedItem.email}</Text>
+                </View>
+              </View>
+              <View style={styles.cardButtonContainer}>
+                <View style={styles.cardButton}><Text style={styles.cardButtonText}>Follow</Text></View>
+                <View style={styles.cardButton}><Text style={styles.cardButtonText}>Message</Text></View>
+              </View>
+              <View style={styles.cardFooter}>
+                <View style={styles.cardFooterFollowersText}></View>
+                <View style={styles.cardFooterFollowersAvatars}>
+                  <View style={styles.cardFooterFollowersAvatarsImages}></View>
+                  <View style={styles.cardFooterFollowersAvatarsImagesExtra}></View>
+                </View>
+              </View>
+
+            </View>
+            <View style={styles.button}>
+              <LinkToRouteName routeName="hello" webpath="hello" >
+                <Text style={styles.buttonText}>{"<"}</Text>
+              </LinkToRouteName>
+            </View>
             {/* <Text>{JSON.stringify(item)}</Text> */}
           </>
         }
-
       </View>
 
       {/* <Card key={item.id} title={item.name} source={'https://picsum.photos/200'} subtitle={item.email} onPress={alert(item.city)} callToAction='say Hello' /> */}
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     borderRadius: 100
   },
   cardAvatarLettering: {
-    width: Platform.OS === "web" ? (400-216) : (width - 216),
+    width: Platform.OS === "web" ? (400 - 216) : (width - 216),
     marginLeft: 24,
     height: 70,
     backgroundColor: 'green'

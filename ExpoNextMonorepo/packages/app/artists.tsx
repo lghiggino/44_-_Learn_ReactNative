@@ -32,8 +32,12 @@ type IItem = {
 
 export function Artists() {
   const { getParam } = useRouting()
-  const item: IItem = getParam('item')
-  console.log("item is", item)
+  const item: string = getParam('item')
+  console.log("item is", item, "banana")
+  console.log(typeof(item))
+
+  const parsedItem: IItem = JSON.parse(item)
+  console.log(parsedItem)
 
 
   return (
@@ -66,9 +70,9 @@ export function Artists() {
         </View>
         {item &&
           <>
-            <Text>{item.name}</Text>
-            <Text>{item.email}</Text>
-            <Text>{JSON.stringify(item)}</Text>
+            <Text>{parsedItem.name}</Text>
+            <Text>{parsedItem.email}</Text>
+            {/* <Text>{JSON.stringify(item)}</Text> */}
           </>
         }
 

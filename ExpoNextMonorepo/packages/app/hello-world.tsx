@@ -60,14 +60,13 @@ export function HelloWorld({ }) {
             //     })
             //   }}>
             <Link
-              style={{ backgroundColor: 'green', marginBottom: 10 }}
-              routeName="artists" 
+              key={item.id}
+              style={styles.button}
+              routeName="artists"
               web={{
                 path: `artists/${item.id}`
               }}
-              params={{
-                item: item
-              }}
+              params={{ item: JSON.stringify(item) }}
             >
               <Text>Ir para {item.name}</Text>
             </Link>
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 12,
     paddingVertical: 6,
-    backgroundColor: 'red',
+    backgroundColor: 'green',
     borderRadius: 6,
     marginVertical: 5,
     width: Platform.OS === 'web' ? width / 8 : 200

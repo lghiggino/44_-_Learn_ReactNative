@@ -83,6 +83,9 @@ export function Artists() {
   )
 }
 
+//usar o dripsy ao invés de width para fazer as larguras nas telas
+
+
 const { width } = Dimensions.get('screen')
 const styles = StyleSheet.create({
   container: {

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Platform, Dimensions, ScrollView, View, Text, StyleSheet, Pressable } from 'react-native'
+import { Platform, Dimensions, ScrollView, Text, StyleSheet, View, Pressable } from 'react-native'
 import { LinkToRouteName } from './utils/CustomLinks'
 import { Link, useRouting } from 'expo-next-react-navigation'
+import { theme } from '../app/theme'
 
 
 

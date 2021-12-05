@@ -5,7 +5,7 @@ const theme = makeTheme({
   colors: {
     $text: '#000',
     $background: '#fff',
-    $primary: 'tomato',
+    $primary: 'green',
   },
   space: {
     // recommended: set 0 first, then double for consistent nested spacing

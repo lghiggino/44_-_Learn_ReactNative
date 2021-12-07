@@ -5,12 +5,16 @@ import { makeTheme } from 'dripsy'
 
 const theme = makeTheme({
   breakpoints:[
-    '480px', '768px', '1024px', '1280px'
+    '480px', '768px', '1024px', '1200px', '1920px'
   ],
   colors: {
     $text: '#000',
-    $background: '#fff',
-    $primary: 'green',
+    $background: '#f1f1f1',
+    $primary: '#07c',
+    $secondary: '#0011cc',
+    $accent: '#77cc00',
+    $highlight: '#cc0077',
+    $muted: '#f5f5f5'
   },
   space: {
     // recommended: set 0 first, then double for consistent nested spacing

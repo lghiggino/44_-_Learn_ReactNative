@@ -14,7 +14,9 @@ const theme = makeTheme({
     $secondary: '#0011cc',
     $accent: '#77cc00',
     $highlight: '#cc0077',
-    $muted: '#f5f5f5'
+    $muted: '#f5f5f5',
+    $transparent: 'transparent',
+    $lightText: '#fff'
   },
   space: {
     // recommended: set 0 first, then double for consistent nested spacing

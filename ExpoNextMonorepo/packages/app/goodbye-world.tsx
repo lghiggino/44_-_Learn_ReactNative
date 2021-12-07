@@ -5,8 +5,8 @@ import { LinkToRouteName } from './utils/CustomLinks'
 export function GoodbyeWorld() {
   return (
     <View sx={{
-      backgroundColor: ['red', 'green'],
-      padding: [ '$2', '$3']
+      backgroundColor: ['red', 'green', 'blue'],
+      padding: [ '$2', '$3', '$5']
     }}>
       <Text>Goodbye, World!</Text>
       <View>

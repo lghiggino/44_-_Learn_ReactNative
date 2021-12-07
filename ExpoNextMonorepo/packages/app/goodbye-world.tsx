@@ -5,8 +5,8 @@ import { LinkToRouteName } from './utils/CustomLinks'
 export function GoodbyeWorld() {
   return (
     <View sx={{
-      backgroundColor: ['red', 'green', 'blue'],
-      padding: [ '$2', '$3', '$5']
+      backgroundColor: ['red', 'green', 'blue', 'orange'],
+      padding: [ '$2', '$3', '$4', '$5']
     }}>
       <Text>Goodbye, World!</Text>
       <View>
@@ -17,24 +17,3 @@ export function GoodbyeWorld() {
     </View>
   )
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center'
-//   },
-//   text: {
-//     color: 'red'
-//   },
-//   buttonText:{
-//     color: 'white'
-//   },
-//   button: {
-//     paddingHorizontal: 12,
-//     paddingVertical: 6,
-//     backgroundColor: 'red',
-//     borderRadius: 6,
-//     marginVertical: 5
-//   }
-// })

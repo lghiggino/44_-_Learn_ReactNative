@@ -1,7 +1,12 @@
 // https://www.dripsy.xyz/usage/theming/create
+// and
+// https://theme-ui.com/theming/
 import { makeTheme } from 'dripsy'
 
 const theme = makeTheme({
+  breakpoints:[
+    '480px', '768px', '1024px', '1280px'
+  ],
   colors: {
     $text: '#000',
     $background: '#fff',

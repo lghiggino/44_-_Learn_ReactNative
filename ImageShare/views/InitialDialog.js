@@ -78,7 +78,7 @@ export default function InitialDialog({ navigation }) {
                 {data.map(item => (
                     <View
                         key={item.id}
-                        style={{backgroundColor: colorScale.getColor(item.value).toHexString() }}
+                        style={{ backgroundColor: colorScale.getColor(item.value).toHexString() }}
                     >
                         <Text>{item.title} - {item.value}</Text>
                     </View>

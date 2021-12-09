@@ -6,7 +6,8 @@ export function GoodbyeWorld() {
   return (
     <View sx={{
       backgroundColor: ['$background', '$secondary', '$accent', '$highlight'],
-      padding: ['$2', '$3', '$4', '$5']
+      padding: ['$2', '$3', '$4', '$7'],
+      margin: ['$2', '$3', '$4', '$7']
     }}>
       <Text
         sx={{

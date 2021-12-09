@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SelectedImageContext } from '../context/SelectImage';
 import ImageShare from './ImageShare';
+import ColorScale from 'color-scales'
 
 //components
 import Button from '../components/Button';
@@ -33,10 +34,36 @@ export default function InitialDialog({ navigation }) {
         } else {
             setSelectedImage({ localUri: pickerResult.uri, remoteUri: null });
         }
-
         selectedImage && navigation.navigate('ImageShare')
-
     }
+
+    let colorScale = new ColorScale(0, 100, ["#ffffff", "#0000ff"], 1);
+    let colorObj = colorScale.getColor(50)
+    let hexStr = colorScale.getColor(50).toHexString();
+
+    const data = [
+        {
+            id: 1,
+            title: 'apple',
+            value: '12'
+        },
+        {
+            id: 2,
+            title: 'banana',
+            value: '20'
+        },
+        {
+            id: 3,
+            title: 'caju',
+            value: '8'
+        },
+        {
+            id: 4,
+            title: 'dactarin',
+            value: '2'
+        },
+    ]
+
     return (
         <View style={styles.container}>
             <StatusBar style='auto' />
@@ -46,6 +73,17 @@ export default function InitialDialog({ navigation }) {
                 onPress={openImagePickerAsync}
                 text="Pick a photo"
             />
+            <View>
+                <Text style={{ backgroundColor: hexStr, color: 'white' }}>teste2</Text>
+                {data.map(item => (
+                    <View
+                        key={item.id}
+                        style={{backgroundColor: colorScale.getColor(item.value).toHexString() }}
+                    >
+                        <Text>{item.title} - {item.value}</Text>
+                    </View>
+                ))}
+            </View>
         </View>
     )
 }

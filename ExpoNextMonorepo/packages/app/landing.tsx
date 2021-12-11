@@ -13,10 +13,28 @@ const Landing: React.FC = () => {
       <View
         sx={{
           margin: ['$1', '$3', '$5'],
+          backgroundColor: 'white',
+          borderRadius: 20,
+          width: ['auto'],
+          height: [600]
         }}
       >
-        <Text> Olá de Landing</Text>
-      </View>
+        <View>
+          <Text>eu sou o header</Text>
+        </View>
+        <View 
+          sx={{
+            flexDirection: ['column', 'column', 'row']
+          }}
+        >
+          <View>
+            <Text>New Collection</Text>
+          </View>
+          <View>
+            <Text>Image</Text>
+          </View>
+        </View>
+       </View>
 
     </View>
   );

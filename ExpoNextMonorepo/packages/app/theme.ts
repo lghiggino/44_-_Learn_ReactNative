@@ -5,7 +5,7 @@ import { makeTheme } from 'dripsy'
 
 const theme = makeTheme({
   breakpoints:[
-    '480px', '768px', '1024px', '1200px', '1920px'
+    '480px', '769px', '1024px', '1200px', '1920px'
   ],
   colors: {
     $text: '#000',

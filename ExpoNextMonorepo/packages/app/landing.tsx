@@ -22,19 +22,29 @@ const Landing: React.FC = () => {
         <View>
           <Text>eu sou o header</Text>
         </View>
-        <View 
+        <View
           sx={{
             flexDirection: ['column', 'column', 'row']
           }}
         >
-          <View>
-            <Text>New Collection</Text>
+          <View
+            sx={{
+              maxWidth: ['100%', '50%']
+            }}
+          >
+            <Text
+              sx={{
+                fontSize: [40, 110, 160]
+              }}
+            >
+              New Collection
+            </Text>
           </View>
           <View>
             <Text>Image</Text>
           </View>
         </View>
-       </View>
+      </View>
 
     </View>
   );

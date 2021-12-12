@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, Image } from 'dripsy';
+const shoe = require('../expo/assets/SeekPng.com_tennis-shoe-png_4960577.png')
 
 // import { Container } from './styles';
 
 const Landing: React.FC = () => {
+  console.log(shoe)
   return (
     <View
       sx={{
@@ -24,24 +26,27 @@ const Landing: React.FC = () => {
         </View>
         <View
           sx={{
-            flexDirection: ['column', 'column', 'row']
+            flexDirection: ['column', 'column', 'column', 'row']
           }}
         >
           <View
             sx={{
-              maxWidth: ['100%', '50%']
+              marginLeft: ['$1', '$2', '$3', '$4'],
+              maxWidth: ['100%', '100%', '100%', '50%']
             }}
           >
             <Text
               sx={{
-                fontSize: [40, 110, 160]
+                fontSize: [40, 60, 90, 110]
               }}
             >
               New Collection
             </Text>
           </View>
           <View>
-            <Text>Image</Text>
+            <View>
+              <Image source={shoe} width={20} height={20}/>
+            </View>
           </View>
         </View>
       </View>

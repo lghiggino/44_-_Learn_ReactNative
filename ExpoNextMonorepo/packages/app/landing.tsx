@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import { View, Text, Image } from 'dripsy';
-const shoe = require('../expo/assets/SeekPng.com_tennis-shoe-png_4960577.png')
+// const shoe = require('../app/assets/SeekPng.com_tennis-shoe-png_4960577.png')
 
 // import { Container } from './styles';
 
 const Landing: React.FC = () => {
-  console.log(shoe)
+
   return (
     <View
       sx={{
@@ -45,7 +46,16 @@ const Landing: React.FC = () => {
           </View>
           <View>
             <View>
-              <Image source={shoe} width={20} height={20}/>
+              {/* <Image source={{
+                uri: 'https://reactnative.dev/img/tiny_logo.png',
+              }}
+                width={200}
+                height={200}
+                style={{ backgroundColor: 'red', width: 200, height: 200 }}
+              /> */}
+              <Image source={require('./greenShoesWhiteBackground.jpg')}
+                style={{ backgroundColor: 'red', width: 200, height: 200 }}
+              />
             </View>
           </View>
         </View>

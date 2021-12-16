@@ -1,4 +1,5 @@
 import { Platform, Dimensions, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { MotiView } from 'moti'
 import { LinkToRouteName } from './utils/CustomLinks'
 import Card from '../expo/components/templates/Card'
 import { Link, useRouting } from "expo-next-react-navigation"
@@ -45,7 +46,21 @@ export function Artists() {
       <View style={styles.container}>
         {item &&
           <>
-            <View style={styles.card}>
+            <MotiView
+              style={styles.card}
+              from={{
+                opacity: 0,
+                scale: 0.1,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                type: 'timing',
+                duration: 1500,
+              }}
+              >
               <View style={styles.cardBackgroundImage}></View>
               <View style={{ flexDirection: 'row' }}>
                 <View style={styles.cardAvatarImage}></View>
@@ -66,9 +81,9 @@ export function Artists() {
                 </View>
               </View>
 
-            </View>
+            </MotiView>
             <View style={styles.button}>
-              <LinkToRouteName routeName="hello" webpath="hello" >
+              <LinkToRouteName routeName="hello" webpath="/" >
                 <Text style={styles.buttonText}>{"<"}</Text>
               </LinkToRouteName>
             </View>

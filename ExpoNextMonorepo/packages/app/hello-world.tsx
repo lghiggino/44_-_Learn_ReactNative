@@ -55,7 +55,8 @@ export function HelloWorld({ }) {
               style={styles.button}
               routeName="artists"
               web={{
-                path: `artists/${item.id}`
+                path: `artists/${item.id}`,
+                // as: `artists/${item.name.split(" ").join("")}`
               }}
               params={{ item: JSON.stringify(item) }}
             >

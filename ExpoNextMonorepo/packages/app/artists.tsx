@@ -1,4 +1,4 @@
-import { Platform, Dimensions, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { Platform, Dimensions, View, Text, StyleSheet, TouchableOpacity, Pressable } from 'react-native'
 import { MotiView } from 'moti'
 import { LinkToRouteName } from './utils/CustomLinks'
 import Card from '../expo/components/templates/Card'
@@ -82,9 +82,9 @@ export function Artists() {
               </View>
 
             </MotiView>
-            <View style={styles.button}>
+            <View style={styles.button} >
               <LinkToRouteName routeName="hello" webpath="/" >
-                <Text style={styles.buttonText}>{"<"}</Text>
+                <Text style={styles.buttonText}>back</Text>
               </LinkToRouteName>
             </View>
             {/* <Text>{JSON.stringify(item)}</Text> */}
@@ -109,14 +109,15 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   buttonText: {
-    color: 'white'
+    color: 'white',
   },
   button: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 20,
     paddingVertical: 6,
     backgroundColor: 'red',
     borderRadius: 6,
-    marginVertical: 5
+    marginVertical: 5,
+    
   },
   card: {
     width: width - 24,

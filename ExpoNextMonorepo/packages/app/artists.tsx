@@ -58,7 +58,7 @@ export function Artists() {
               }}
               transition={{
                 type: 'timing',
-                duration: 1500,
+                duration: 500,
               }}
               >
               <View style={styles.cardBackgroundImage}></View>

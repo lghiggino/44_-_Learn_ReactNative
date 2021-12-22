@@ -19,7 +19,7 @@ const Landing: React.FC = () => {
           backgroundColor: 'white',
           borderRadius: 20,
           width: ['auto'],
-          height: [600]
+          height: [500]
         }}
       >
         <View>

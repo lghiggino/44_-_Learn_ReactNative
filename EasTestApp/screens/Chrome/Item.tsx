@@ -140,7 +140,7 @@ const Item = ({
   });
   const style = useAnimatedStyle(() => {
     const zIndex = isGestureActive.value ? 100 : 0;
-    const scale = withSpring(isGestureActive.value ? 1.05 : 1);
+    const scale = withSpring(isGestureActive.value ? 1.25 : 1);
     return {
       position: "absolute",
       top: 0,

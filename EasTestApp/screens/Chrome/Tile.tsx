@@ -21,7 +21,7 @@ const Tile = ({ uri }: TileProps) => {
     <View style={styles.container} pointerEvents="none">
       <WebView
         source={{ uri }}
-        style={{ flex: 1, margin: MARGIN * 2, borderRadius: MARGIN }}
+        style={{ flex: 1, margin: MARGIN * 2, borderRadius: MARGIN  }}
       />
     </View>
   );

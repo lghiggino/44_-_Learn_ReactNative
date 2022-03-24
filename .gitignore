@@ -16,3 +16,9 @@ web-build/
 
 # macOS
 .DS_Store
+ 
+ 
+*.ipa
+*.apks
+*.apk
+*.aab

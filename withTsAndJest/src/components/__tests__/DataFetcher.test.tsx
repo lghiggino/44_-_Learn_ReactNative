@@ -1,9 +1,11 @@
 import React from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
-import Example from '../DataFetcher';
+import DataFetcher from '../DataFetcher';
 
 test('examples of some things', async () => {
-  const { getByTestId, getByText, queryByTestId, toJSON } = render(<Example />);
+  const { getByTestId, getByText, queryByTestId, toJSON } = render(
+    <DataFetcher />,
+  );
   const famousProgrammerInHistory = 'Ada Lovelace';
 
   const input = getByTestId('input');

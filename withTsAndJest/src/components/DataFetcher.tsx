@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
 
-export default function Example() {
+export default function DataFetcher() {
   const [user, setUser] = useState('');
   const [show, setShow] = useState(false);
 

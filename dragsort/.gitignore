@@ -1,10 +1,6 @@
-.expo
-.env
-**/node_modules/
-
-
 node_modules/
 .expo/
+dist/
 npm-debug.*
 *.jks
 *.p8
@@ -16,10 +12,3 @@ web-build/
 
 # macOS
 .DS_Store
- 
- 
-*.ipa
-*.apks
-*.apk
-*.aab
-dragsort/.dccache

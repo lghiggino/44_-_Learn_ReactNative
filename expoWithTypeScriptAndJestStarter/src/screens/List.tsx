@@ -30,6 +30,11 @@ const screens = [
     subtitle: 'An example of using the Button.js components.',
     target: 'ButtonDemo',
   },
+  {
+    title: 'ButtonPage',
+    subtitle: 'BtnPage',
+    target: 'ButtonPage',
+  },
 ];
 
 type Props = {

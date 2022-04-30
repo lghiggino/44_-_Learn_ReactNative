@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 
 import { Button } from '../Button';
 
-describe("Button test", () => {
+describe('Button test', () => {
   it('functions as a button', () => {
     const onPress = jest.fn();
     const out = render(<Button onPress={onPress}>Press Me</Button>);
@@ -12,6 +13,4 @@ describe("Button test", () => {
 
     expect(onPress).toBeCalled();
   });
-})
-
-
+});

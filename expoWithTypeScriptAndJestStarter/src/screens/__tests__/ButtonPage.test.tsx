@@ -11,7 +11,7 @@ describe('Button test', () => {
     const out = render(<Button onPress={onPress}>Press Me</Button>);
     const text = render(<Text>Render from button press</Text>);
 
-    const pressEvent = fireEvent.press(out.getByText('Press Me'));
+    // const pressEvent = fireEvent.press(out.getByText('Press Me'));
     const expectedRender = text.getByText('Render from button press');
 
     expect(text).toBeDefined();

@@ -42,3 +42,6 @@ export default function AnimatedStyleUpdateExample({}) {
     </View>
   );
 }
+
+//https://www.youtube.com/watch?v=Ia2y0GDEuPc&t=121s
+//https://www.youtube.com/watch?v=-39OEXk_mWc
